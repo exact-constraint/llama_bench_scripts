@@ -1,4 +1,4 @@
-Good. Now: Analyze the codebase you just built, and output a summary report of how it functions as a .md file. Afterwards, create a plan file to port the codebase to html/css/js. Finally, follow your plan, placing the new files in a directory called 'html_port'. 
+Good. Now: Analyze the codebase you just built, and output a summary report of how it functions as a .md file. Afterwards, create a plan file to port the codebase to html/css/js. Finally, follow your plan, placing the new files in a directory called 'html_port'. ***Only for MTP test*** Your project directory has changed, all your original files can be found in this new directory. ***ONly for MTP Test***
 
 Your deliverables:
 
