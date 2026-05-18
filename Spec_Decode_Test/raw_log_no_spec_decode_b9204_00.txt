@@ -1,0 +1,1308 @@
+[34m0.00.018.794[0m [32mI [0mlog_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+[34m0.00.018.796[0m [32mI [0mdevice_info:
+[34m0.00.018.908[0m [32mI [0m  - Vulkan0 : AMD Radeon AI PRO R9700 (RADV GFX1201) (32624 MiB, 31201 MiB free)
+[34m0.00.018.915[0m [32mI [0m  - CPU     : Intel(R) Core(TM) Ultra 5 225F (31300 MiB, 31300 MiB free)
+[34m0.00.018.963[0m [32mI [0msystem_info: n_threads = 10 (n_threads_batch = 10) / 10 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX_VNNI = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+[34m0.00.018.974[0m [32mI [0msrv          init: running without SSL
+[34m0.00.018.993[0m [32mI [0msrv          init: using 9 threads for HTTP server
+[34m0.00.019.048[0m [32mI [0msrv         start: binding port with default address family
+[34m0.00.020.172[0m [32mI [0msrv          main: loading model
+[34m0.00.020.175[0m [32mI [0msrv    load_model: loading model '/home/clarence/Downloads/Qwen3.6-27B-UD-Q4_K_XL.gguf'
+[34m0.00.020.195[0m [32mI [0mcommon_init_result: fitting params to device memory ...
+[34m0.00.020.196[0m [32mI [0mcommon_init_result: (for bugs during this step try to reproduce them with -fit off, or provide --verbose logs if the bug only occurs with -fit on)
+[34m0.03.540.703[0m [35mW llama_context: n_ctx_seq (207872) < n_ctx_train (262144) -- the full capacity of the model will not be utilized
+[0m[34m0.03.621.800[0m [35mW common_init_from_params: warming up the model with an empty run - please wait ... (--no-warmup to disable)
+[0m[34m0.03.689.421[0m [35mW load_hparams: Qwen-VL models require at minimum 1024 image tokens to function correctly on grounding tasks
+[0m[34m0.03.689.423[0m [35mW load_hparams: if you encounter problems with accuracy, try adding --image-min-tokens 1024
+[0m[34m0.03.689.423[0m [35mW load_hparams: more info: https://github.com/ggml-org/llama.cpp/issues/16842
+
+[0m[34m0.04.049.490[0m [32mI [0msrv    load_model: loaded multimodal model, '/home/clarence/Downloads/mmproj-BF16(3).gguf'
+[34m0.04.049.496[0m [32mI [0msrv    load_model: initializing slots, n_slots = 1
+[34m0.04.139.694[0m [35mW srv    load_model: speculative decoding will use checkpoints
+[0m[34m0.04.139.699[0m [35mW common_speculative_init: no implementations specified for speculative decoding
+[0m[34m0.04.139.700[0m [32mI [0mslot   load_model: id  0 | task -1 | new slot, n_ctx = 207872
+[34m0.04.139.745[0m [32mI [0msrv    load_model: prompt cache is enabled, size limit: 8192 MiB
+[34m0.04.139.745[0m [32mI [0msrv    load_model: use `--cache-ram 0` to disable the prompt cache
+[34m0.04.139.745[0m [32mI [0msrv    load_model: for more info see https://github.com/ggml-org/llama.cpp/pull/16391
+[34m0.04.139.758[0m [35mW srv          init: --cache-idle-slots requires --kv-unified, disabling
+[0m[34m0.04.149.781[0m [32mI [0minit: chat template, example_format: '<|im_start|>system
+You are a helpful assistant<|im_end|>
+<|im_start|>user
+Hello<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+Hi there<|im_end|>
+<|im_start|>user
+How are you?<|im_end|>
+<|im_start|>assistant
+<think>
+'
+[34m0.04.157.419[0m [32mI [0msrv          init: init: chat template, thinking = 1
+[34m0.04.157.431[0m [32mI [0msrv          main: model loaded
+[34m0.04.157.433[0m [32mI [0msrv          main: server is listening on http://0.0.0.0:8180
+[34m0.04.157.435[0m [32mI [0msrv  update_slots: all slots are idle
+[34m0.32.879.707[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m0.32.880.011[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = -1
+[34m0.32.880.016[0m [32mI [0msrv  get_availabl: updating prompt cache
+[34m0.32.880.019[0m [32mI [0msrv          load:  - looking for better prompt, base f_keep = -1.000, sim = 0.000
+[34m0.32.880.020[0m [32mI [0msrv        update:  - cache state: 0 prompts, 0.000 MiB (limits: 8192.000 MiB, 207872 tokens, 8589934592 est)
+[34m0.32.880.021[0m [32mI [0msrv  get_availabl: prompt cache update took 0.01 ms
+[34m0.32.880.049[0m [32mI [0mslot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+[34m0.32.905.369[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m0.33.069.415[0m [32mI [0mslot create_check: id  0 | task 0 | created context checkpoint 1 of 32 (pos_min = 110, pos_max = 110, n_tokens = 111, size = 149.626 MiB)
+[34m0.33.566.449[0m [32mI [0mslot create_check: id  0 | task 0 | created context checkpoint 2 of 32 (pos_min = 622, pos_max = 622, n_tokens = 623, size = 149.626 MiB)
+[34m0.36.768.016[0m [32mI [0mslot print_timing: id  0 | task 0 | n_decoded =    100, tg =  31.70 t/s
+[34m0.39.790.162[0m [32mI [0mslot print_timing: id  0 | task 0 | n_decoded =    195, tg =  31.57 t/s
+[34m0.42.806.619[0m [32mI [0mslot print_timing: id  0 | task 0 | n_decoded =    290, tg =  31.54 t/s
+[34m0.45.545.089[0m [32mI [0mslot print_timing: id  0 | task 0 | 
+prompt eval time =     733.01 ms /   627 tokens (    1.17 ms per token,   855.37 tokens per second)
+       eval time =   11932.01 ms /   376 tokens (   31.73 ms per token,    31.51 tokens per second)
+      total time =   12665.02 ms /  1003 tokens
+[34m0.45.545.130[0m [32mI [0mslot      release: id  0 | task 0 | stop processing: n_tokens = 1002, truncated = 0
+[34m0.45.545.137[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = 1132724062243
+[34m0.45.545.137[0m [32mI [0msrv  get_availabl: updating prompt cache
+[34m0.45.545.306[0m [35mW srv   prompt_save:  - saving prompt with length 1002, total state size = 212.271 MiB (draft: 0.000 MiB)
+[0m[34m0.45.759.398[0m [32mI [0msrv          load:  - looking for better prompt, base f_keep = 0.003, sim = 0.000
+[34m0.45.759.405[0m [32mI [0msrv        update:  - cache state: 1 prompts, 511.523 MiB (limits: 8192.000 MiB, 207872 tokens, 207872 est)
+[34m0.45.759.406[0m [32mI [0msrv        update:    - prompt 0x5b8898356f40:    1002 tokens, checkpoints:  2,   511.523 MiB
+[34m0.45.759.407[0m [32mI [0msrv  get_availabl: prompt cache update took 214.27 ms
+[34m0.45.759.934[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m0.45.759.951[0m [32mI [0mslot launch_slot_: id  0 | task 3 | processing task, is_child = 0
+[34m0.45.759.959[0m [35mW slot update_slots: id  0 | task 3 | n_past = 3, slot.prompt.tokens.size() = 1002, seq_id = 0, pos_min = 1001, n_swa = 0
+[0m[34m0.45.759.959[0m [32mI [0mslot update_slots: id  0 | task 3 | Checking checkpoint with [622, 622] against 3...
+[34m0.45.759.959[0m [32mI [0mslot update_slots: id  0 | task 3 | Checking checkpoint with [110, 110] against 3...
+[34m0.45.759.959[0m [35mW slot update_slots: id  0 | task 3 | forcing full prompt re-processing due to lack of cache data (likely due to SWA or hybrid/recurrent memory, see https://github.com/ggml-org/llama.cpp/pull/13194#issuecomment-2868343055)
+[0m[34m0.45.759.960[0m [35mW slot update_slots: id  0 | task 3 | erased invalidated context checkpoint (pos_min = 110, pos_max = 110, n_tokens = 111, n_swa = 0, pos_next = 0, size = 149.626 MiB)
+[0m[34m0.45.763.561[0m [35mW slot update_slots: id  0 | task 3 | erased invalidated context checkpoint (pos_min = 622, pos_max = 622, n_tokens = 623, n_swa = 0, pos_next = 0, size = 149.626 MiB)
+[0m[34m0.49.076.969[0m [32mI [0mslot print_timing: id  0 | task 3 | prompt processing, n_tokens =   4096, progress = 0.38, t =   3.32 s / 1234.85 tokens per second
+[34m0.51.022.495[0m [32mI [0mslot print_timing: id  0 | task 3 | prompt processing, n_tokens =   6144, progress = 0.57, t =   5.26 s / 1167.50 tokens per second
+[34m0.53.010.956[0m [32mI [0mslot print_timing: id  0 | task 3 | prompt processing, n_tokens =   8192, progress = 0.76, t =   7.25 s / 1129.78 tokens per second
+[34m0.53.011.058[0m [32mI [0mslot update_slots: id  0 | task 3 | 8192 tokens since last checkpoint at 0, creating new checkpoint during processing at position 10240
+[34m0.53.534.695[0m [32mI [0mslot create_check: id  0 | task 3 | created context checkpoint 1 of 32 (pos_min = 8191, pos_max = 8191, n_tokens = 8192, size = 149.626 MiB)
+[34m0.55.072.059[0m [32mI [0mslot print_timing: id  0 | task 3 | prompt processing, n_tokens =  10240, progress = 0.95, t =   9.31 s / 1099.64 tokens per second
+[34m0.55.586.680[0m [32mI [0mslot print_timing: id  0 | task 3 | prompt processing, n_tokens =  10286, progress = 0.95, t =   9.83 s / 1046.74 tokens per second
+[34m0.55.714.870[0m [32mI [0mslot create_check: id  0 | task 3 | created context checkpoint 2 of 32 (pos_min = 10285, pos_max = 10285, n_tokens = 10286, size = 149.626 MiB)
+[34m0.55.722.089[0m [32mI [0mslot print_timing: id  0 | task 3 | prompt processing, n_tokens =  10798, progress = 1.00, t =   9.96 s / 1083.90 tokens per second
+[34m0.56.262.509[0m [32mI [0mslot create_check: id  0 | task 3 | created context checkpoint 3 of 32 (pos_min = 10797, pos_max = 10797, n_tokens = 10798, size = 149.626 MiB)
+[34m0.56.374.503[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m0.59.568.579[0m [32mI [0mslot print_timing: id  0 | task 3 | n_decoded =    100, tg =  30.66 t/s
+[34m1.02.135.796[0m [32mI [0mslot print_timing: id  0 | task 3 | 
+prompt eval time =   10547.30 ms / 10802 tokens (    0.98 ms per token,  1024.15 tokens per second)
+       eval time =    5828.52 ms /   178 tokens (   32.74 ms per token,    30.54 tokens per second)
+      total time =   16375.83 ms / 10980 tokens
+[34m1.02.136.164[0m [32mI [0mslot      release: id  0 | task 3 | stop processing: n_tokens = 10979, truncated = 0
+[34m1.02.136.171[0m [32mI [0msrv  update_slots: all slots are idle
+[34m1.02.238.233[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m1.02.240.636[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.980 (> 0.100 thold), f_keep = 1.000
+[34m1.02.241.206[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m1.02.241.242[0m [32mI [0mslot launch_slot_: id  0 | task 565 | processing task, is_child = 0
+[34m1.02.320.181[0m [32mI [0mslot create_check: id  0 | task 565 | created context checkpoint 4 of 32 (pos_min = 10978, pos_max = 10978, n_tokens = 10979, size = 149.626 MiB)
+[34m1.02.628.381[0m [32mI [0mslot create_check: id  0 | task 565 | created context checkpoint 5 of 32 (pos_min = 11198, pos_max = 11198, n_tokens = 11199, size = 149.626 MiB)
+[34m1.02.806.400[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m1.05.936.135[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =    100, tg =  30.65 t/s
+[34m1.08.960.090[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =    192, tg =  30.54 t/s
+[34m1.11.979.320[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =    284, tg =  30.52 t/s
+[34m1.15.002.350[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =    376, tg =  30.50 t/s
+[34m1.18.028.308[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =    468, tg =  30.48 t/s
+[34m1.21.051.072[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =    560, tg =  30.47 t/s
+[34m1.24.081.778[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =    652, tg =  30.46 t/s
+[34m1.27.113.844[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =    744, tg =  30.44 t/s
+[34m1.30.145.756[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =    836, tg =  30.43 t/s
+[34m1.33.175.581[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =    928, tg =  30.42 t/s
+[34m1.36.180.124[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   1019, tg =  30.41 t/s
+[34m1.39.204.110[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   1110, tg =  30.39 t/s
+[34m1.42.229.351[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   1201, tg =  30.36 t/s
+[34m1.45.239.689[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   1292, tg =  30.35 t/s
+[34m1.48.260.946[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   1383, tg =  30.34 t/s
+[34m1.51.291.857[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   1474, tg =  30.32 t/s
+[34m1.54.294.510[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   1564, tg =  30.30 t/s
+[34m1.57.295.039[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   1654, tg =  30.28 t/s
+[34m2.00.296.197[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   1744, tg =  30.27 t/s
+[34m2.03.296.588[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   1834, tg =  30.25 t/s
+[34m2.06.317.938[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   1925, tg =  30.25 t/s
+[34m2.09.329.242[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   2016, tg =  30.24 t/s
+[34m2.12.347.227[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   2107, tg =  30.24 t/s
+[34m2.15.374.309[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   2198, tg =  30.23 t/s
+[34m2.18.405.964[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   2289, tg =  30.22 t/s
+[34m2.21.427.480[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   2380, tg =  30.22 t/s
+[34m2.24.448.753[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   2471, tg =  30.22 t/s
+[34m2.27.481.483[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   2562, tg =  30.21 t/s
+[34m2.30.506.180[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   2653, tg =  30.21 t/s
+[34m2.33.532.440[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   2744, tg =  30.20 t/s
+[34m2.36.561.073[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   2835, tg =  30.20 t/s
+[34m2.39.592.465[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   2926, tg =  30.19 t/s
+[34m2.42.618.958[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   3017, tg =  30.19 t/s
+[34m2.45.643.508[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   3108, tg =  30.18 t/s
+[34m2.48.662.753[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   3199, tg =  30.18 t/s
+[34m2.51.693.280[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   3290, tg =  30.18 t/s
+[34m2.54.726.028[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   3381, tg =  30.17 t/s
+[34m2.57.758.828[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   3472, tg =  30.17 t/s
+[34m3.00.791.441[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   3563, tg =  30.16 t/s
+[34m3.03.824.733[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   3654, tg =  30.16 t/s
+[34m3.06.826.721[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   3744, tg =  30.16 t/s
+[34m3.09.859.480[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   3835, tg =  30.15 t/s
+[34m3.12.860.653[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   3925, tg =  30.15 t/s
+[34m3.15.860.867[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   4015, tg =  30.15 t/s
+[34m3.18.891.530[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   4106, tg =  30.14 t/s
+[34m3.21.918.526[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   4197, tg =  30.14 t/s
+[34m3.24.945.563[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   4288, tg =  30.14 t/s
+[34m3.27.975.477[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   4379, tg =  30.14 t/s
+[34m3.30.983.765[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   4469, tg =  30.13 t/s
+[34m3.33.994.502[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   4559, tg =  30.13 t/s
+[34m3.37.003.270[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   4649, tg =  30.12 t/s
+[34m3.40.009.059[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   4739, tg =  30.12 t/s
+[34m3.43.010.016[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   4829, tg =  30.12 t/s
+[34m3.46.041.023[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   4920, tg =  30.12 t/s
+[34m3.49.073.629[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   5011, tg =  30.11 t/s
+[34m3.52.073.987[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   5101, tg =  30.11 t/s
+[34m3.55.075.746[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   5191, tg =  30.11 t/s
+[34m3.58.077.342[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   5281, tg =  30.11 t/s
+[34m4.01.080.164[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   5371, tg =  30.11 t/s
+[34m4.04.083.853[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   5461, tg =  30.10 t/s
+[34m4.07.095.884[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   5551, tg =  30.10 t/s
+[34m4.10.110.289[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   5641, tg =  30.10 t/s
+[34m4.13.128.418[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   5731, tg =  30.09 t/s
+[34m4.16.142.470[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   5821, tg =  30.09 t/s
+[34m4.19.149.603[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   5911, tg =  30.09 t/s
+[34m4.22.158.960[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   6001, tg =  30.08 t/s
+[34m4.25.175.590[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   6091, tg =  30.08 t/s
+[34m4.28.188.225[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   6181, tg =  30.08 t/s
+[34m4.31.198.607[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   6271, tg =  30.07 t/s
+[34m4.34.214.308[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   6361, tg =  30.07 t/s
+[34m4.37.229.739[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   6451, tg =  30.07 t/s
+[34m4.40.248.733[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   6541, tg =  30.06 t/s
+[34m4.43.263.358[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   6631, tg =  30.06 t/s
+[34m4.46.278.009[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   6721, tg =  30.06 t/s
+[34m4.49.293.440[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   6811, tg =  30.05 t/s
+[34m4.52.309.539[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   6901, tg =  30.05 t/s
+[34m4.55.333.656[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   6991, tg =  30.05 t/s
+[34m4.58.360.580[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   7081, tg =  30.04 t/s
+[34m5.01.383.072[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   7171, tg =  30.04 t/s
+[34m5.04.403.467[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   7261, tg =  30.04 t/s
+[34m5.07.424.166[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   7351, tg =  30.03 t/s
+[34m5.10.444.723[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   7441, tg =  30.03 t/s
+[34m5.13.466.760[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   7531, tg =  30.03 t/s
+[34m5.16.487.658[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   7621, tg =  30.03 t/s
+[34m5.19.510.708[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   7711, tg =  30.02 t/s
+[34m5.22.536.564[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   7801, tg =  30.02 t/s
+[34m5.25.560.347[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   7891, tg =  30.02 t/s
+[34m5.28.582.908[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   7981, tg =  30.01 t/s
+[34m5.31.609.589[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   8071, tg =  30.01 t/s
+[34m5.34.638.688[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   8161, tg =  30.01 t/s
+[34m5.37.645.849[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   8250, tg =  30.00 t/s
+[34m5.40.653.334[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   8339, tg =  30.00 t/s
+[34m5.43.658.781[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   8428, tg =  29.99 t/s
+[34m5.46.664.563[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   8517, tg =  29.99 t/s
+[34m5.49.669.601[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   8606, tg =  29.99 t/s
+[34m5.52.670.580[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   8695, tg =  29.98 t/s
+[34m5.55.670.826[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   8784, tg =  29.98 t/s
+[34m5.58.703.198[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   8874, tg =  29.98 t/s
+[34m6.01.735.949[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   8964, tg =  29.97 t/s
+[34m6.04.738.508[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   9053, tg =  29.97 t/s
+[34m6.07.745.377[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   9142, tg =  29.97 t/s
+[34m6.10.759.713[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   9231, tg =  29.96 t/s
+[34m6.13.776.314[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   9320, tg =  29.96 t/s
+[34m6.16.792.263[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   9409, tg =  29.95 t/s
+[34m6.19.811.024[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   9498, tg =  29.95 t/s
+[34m6.22.837.685[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   9587, tg =  29.94 t/s
+[34m6.25.860.393[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   9676, tg =  29.94 t/s
+[34m6.28.876.699[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   9765, tg =  29.94 t/s
+[34m6.31.895.617[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   9854, tg =  29.93 t/s
+[34m6.34.909.139[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =   9943, tg =  29.93 t/s
+[34m6.37.919.963[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  10032, tg =  29.92 t/s
+[34m6.40.932.607[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  10121, tg =  29.92 t/s
+[34m6.43.943.885[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  10210, tg =  29.92 t/s
+[34m6.46.955.783[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  10299, tg =  29.91 t/s
+[34m6.49.970.133[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  10388, tg =  29.91 t/s
+[34m6.52.985.263[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  10477, tg =  29.91 t/s
+[34m6.56.000.669[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  10566, tg =  29.90 t/s
+[34m6.59.015.509[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  10655, tg =  29.90 t/s
+[34m7.02.035.290[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  10744, tg =  29.90 t/s
+[34m7.05.065.279[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  10833, tg =  29.89 t/s
+[34m7.08.085.949[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  10922, tg =  29.89 t/s
+[34m7.11.104.705[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  11011, tg =  29.89 t/s
+[34m7.14.106.461[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  11099, tg =  29.88 t/s
+[34m7.17.107.933[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  11187, tg =  29.88 t/s
+[34m7.20.140.071[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  11276, tg =  29.87 t/s
+[34m7.23.141.309[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  11364, tg =  29.87 t/s
+[34m7.26.173.535[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  11453, tg =  29.86 t/s
+[34m7.29.207.373[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  11542, tg =  29.86 t/s
+[34m7.32.211.204[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  11630, tg =  29.86 t/s
+[34m7.35.214.364[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  11718, tg =  29.85 t/s
+[34m7.38.239.857[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  11807, tg =  29.85 t/s
+[34m7.41.272.583[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  11896, tg =  29.84 t/s
+[34m7.44.276.522[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  11984, tg =  29.84 t/s
+[34m7.47.307.318[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  12073, tg =  29.84 t/s
+[34m7.50.308.359[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  12161, tg =  29.83 t/s
+[34m7.53.319.158[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  12249, tg =  29.83 t/s
+[34m7.56.331.076[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  12337, tg =  29.82 t/s
+[34m7.59.346.550[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  12425, tg =  29.82 t/s
+[34m8.02.358.683[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  12513, tg =  29.82 t/s
+[34m8.05.365.543[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  12601, tg =  29.81 t/s
+[34m8.08.369.265[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  12689, tg =  29.81 t/s
+[34m8.11.372.365[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  12777, tg =  29.80 t/s
+[34m8.14.377.795[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  12865, tg =  29.80 t/s
+[34m8.17.384.506[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  12953, tg =  29.80 t/s
+[34m8.20.386.494[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  13041, tg =  29.79 t/s
+[34m8.23.392.011[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  13129, tg =  29.79 t/s
+[34m8.26.395.276[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  13217, tg =  29.79 t/s
+[34m8.29.408.251[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  13305, tg =  29.78 t/s
+[34m8.32.418.915[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  13393, tg =  29.78 t/s
+[34m8.35.429.054[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  13481, tg =  29.78 t/s
+[34m8.38.441.992[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  13569, tg =  29.77 t/s
+[34m8.41.454.291[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  13657, tg =  29.77 t/s
+[34m8.44.462.849[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  13745, tg =  29.76 t/s
+[34m8.47.473.764[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  13833, tg =  29.76 t/s
+[34m8.50.486.807[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  13921, tg =  29.76 t/s
+[34m8.53.499.813[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  14009, tg =  29.75 t/s
+[34m8.56.519.180[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  14097, tg =  29.75 t/s
+[34m8.59.533.303[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  14185, tg =  29.75 t/s
+[34m9.02.547.019[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  14273, tg =  29.74 t/s
+[34m9.05.565.170[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  14361, tg =  29.74 t/s
+[34m9.08.595.322[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  14449, tg =  29.74 t/s
+[34m9.11.622.906[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  14537, tg =  29.73 t/s
+[34m9.14.639.534[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  14625, tg =  29.73 t/s
+[34m9.17.664.178[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  14713, tg =  29.72 t/s
+[34m9.20.685.773[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  14801, tg =  29.72 t/s
+[34m9.23.719.414[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  14889, tg =  29.72 t/s
+[34m9.26.747.702[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  14977, tg =  29.71 t/s
+[34m9.29.770.788[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  15065, tg =  29.71 t/s
+[34m9.32.793.865[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  15153, tg =  29.70 t/s
+[34m9.35.820.093[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  15241, tg =  29.70 t/s
+[34m9.38.823.941[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  15328, tg =  29.70 t/s
+[34m9.41.855.334[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  15416, tg =  29.69 t/s
+[34m9.44.888.262[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  15504, tg =  29.69 t/s
+[34m9.47.917.520[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  15592, tg =  29.69 t/s
+[34m9.50.919.416[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  15679, tg =  29.68 t/s
+[34m9.53.952.748[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  15767, tg =  29.68 t/s
+[34m9.56.982.892[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  15855, tg =  29.67 t/s
+[34m9.59.991.616[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  15942, tg =  29.67 t/s
+[34m10.03.001.946[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  16029, tg =  29.67 t/s
+[34m10.06.012.103[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  16116, tg =  29.66 t/s
+[34m10.09.045.508[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  16204, tg =  29.66 t/s
+[34m10.12.047.864[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  16291, tg =  29.65 t/s
+[34m10.15.081.738[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  16379, tg =  29.65 t/s
+[34m10.18.091.064[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  16466, tg =  29.65 t/s
+[34m10.21.101.576[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  16553, tg =  29.64 t/s
+[34m10.24.102.740[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  16640, tg =  29.64 t/s
+[34m10.27.117.020[0m [32mI [0mslot print_timing: id  0 | task 565 | n_decoded =  16727, tg =  29.63 t/s
+[34m10.27.393.961[0m [32mI [0mslot print_timing: id  0 | task 565 | 
+prompt eval time =     432.07 ms /   224 tokens (    1.93 ms per token,   518.44 tokens per second)
+       eval time =  564720.63 ms / 16735 tokens (   33.74 ms per token,    29.63 tokens per second)
+      total time =  565152.70 ms / 16959 tokens
+[34m10.27.394.376[0m [32mI [0mslot      release: id  0 | task 565 | stop processing: n_tokens = 27937, truncated = 0
+[34m10.27.394.484[0m [32mI [0msrv  update_slots: all slots are idle
+[34m10.27.681.453[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m10.27.683.596[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.956 (> 0.100 thold), f_keep = 0.956
+[34m10.27.685.013[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m10.27.685.058[0m [32mI [0mslot launch_slot_: id  0 | task 17302 | processing task, is_child = 0
+[34m10.27.685.076[0m [35mW slot update_slots: id  0 | task 17302 | n_past = 26715, slot.prompt.tokens.size() = 27937, seq_id = 0, pos_min = 27936, n_swa = 0
+[0m[34m10.27.685.076[0m [32mI [0mslot update_slots: id  0 | task 17302 | Checking checkpoint with [11198, 11198] against 26715...
+[34m10.27.713.334[0m [35mW slot update_slots: id  0 | task 17302 | restored context checkpoint (pos_min = 11198, pos_max = 11198, n_tokens = 11199, n_past = 11199, size = 149.626 MiB)
+[0m[34m10.31.466.009[0m [32mI [0mslot print_timing: id  0 | task 17302 | prompt processing, n_tokens =   4096, progress = 0.55, t =   3.78 s / 1083.33 tokens per second
+[34m10.33.658.195[0m [32mI [0mslot print_timing: id  0 | task 17302 | prompt processing, n_tokens =   6144, progress = 0.62, t =   5.97 s / 1028.61 tokens per second
+[34m10.35.891.662[0m [32mI [0mslot print_timing: id  0 | task 17302 | prompt processing, n_tokens =   8192, progress = 0.69, t =   8.21 s / 998.22 tokens per second
+[34m10.35.891.766[0m [32mI [0mslot update_slots: id  0 | task 17302 | 8192 tokens since last checkpoint at 11199, creating new checkpoint during processing at position 21439
+[34m10.36.476.391[0m [32mI [0mslot create_check: id  0 | task 17302 | created context checkpoint 6 of 32 (pos_min = 19390, pos_max = 19390, n_tokens = 19391, size = 149.626 MiB)
+[34m10.38.199.903[0m [32mI [0mslot print_timing: id  0 | task 17302 | prompt processing, n_tokens =  10240, progress = 0.77, t =  10.51 s / 973.86 tokens per second
+[34m10.40.515.749[0m [32mI [0mslot print_timing: id  0 | task 17302 | prompt processing, n_tokens =  12288, progress = 0.84, t =  12.83 s / 957.70 tokens per second
+[34m10.42.872.263[0m [32mI [0mslot print_timing: id  0 | task 17302 | prompt processing, n_tokens =  14336, progress = 0.91, t =  15.19 s / 943.95 tokens per second
+[34m10.45.268.385[0m [32mI [0mslot print_timing: id  0 | task 17302 | prompt processing, n_tokens =  16243, progress = 0.98, t =  17.58 s / 923.77 tokens per second
+[34m10.45.740.287[0m [32mI [0mslot create_check: id  0 | task 17302 | created context checkpoint 7 of 32 (pos_min = 27441, pos_max = 27441, n_tokens = 27442, size = 149.626 MiB)
+[34m10.45.750.860[0m [32mI [0mslot print_timing: id  0 | task 17302 | prompt processing, n_tokens =  16755, progress = 1.00, t =  18.07 s / 927.44 tokens per second
+[34m10.46.378.816[0m [32mI [0mslot create_check: id  0 | task 17302 | created context checkpoint 8 of 32 (pos_min = 27953, pos_max = 27953, n_tokens = 27954, size = 149.626 MiB)
+[34m10.49.846.699[0m [32mI [0mslot print_timing: id  0 | task 17302 | n_decoded =    100, tg =  29.23 t/s
+[34m10.51.092.901[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m10.52.862.089[0m [32mI [0mslot print_timing: id  0 | task 17302 | n_decoded =    187, tg =  29.06 t/s
+[34m10.55.884.035[0m [32mI [0mslot print_timing: id  0 | task 17302 | n_decoded =    274, tg =  28.97 t/s
+[34m10.57.683.992[0m [32mI [0mslot print_timing: id  0 | task 17302 | 
+prompt eval time =   18741.06 ms / 16759 tokens (    1.12 ms per token,   894.24 tokens per second)
+       eval time =   11257.85 ms /   326 tokens (   34.53 ms per token,    28.96 tokens per second)
+      total time =   29998.92 ms / 17085 tokens
+[34m10.57.684.678[0m [32mI [0mslot      release: id  0 | task 17302 | stop processing: n_tokens = 28283, truncated = 0
+[34m10.57.684.739[0m [32mI [0msrv  update_slots: all slots are idle
+[34m10.57.849.209[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m10.57.851.380[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.992 (> 0.100 thold), f_keep = 1.000
+[34m10.57.851.972[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m10.57.852.015[0m [32mI [0mslot launch_slot_: id  0 | task 17638 | processing task, is_child = 0
+[34m10.57.920.265[0m [32mI [0mslot create_check: id  0 | task 17638 | created context checkpoint 9 of 32 (pos_min = 28282, pos_max = 28282, n_tokens = 28283, size = 149.626 MiB)
+[34m10.58.276.005[0m [32mI [0mslot create_check: id  0 | task 17638 | created context checkpoint 10 of 32 (pos_min = 28502, pos_max = 28502, n_tokens = 28503, size = 149.626 MiB)
+[34m10.58.393.184[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m11.01.779.796[0m [32mI [0mslot print_timing: id  0 | task 17638 | n_decoded =    100, tg =  28.92 t/s
+[34m11.04.620.375[0m [32mI [0mslot print_timing: id  0 | task 17638 | 
+prompt eval time =     470.12 ms /   224 tokens (    2.10 ms per token,   476.47 tokens per second)
+       eval time =    6298.22 ms /   182 tokens (   34.61 ms per token,    28.90 tokens per second)
+      total time =    6768.34 ms /   406 tokens
+[34m11.04.620.971[0m [32mI [0mslot      release: id  0 | task 17638 | stop processing: n_tokens = 28688, truncated = 0
+[34m11.04.621.026[0m [32mI [0msrv  update_slots: all slots are idle
+[34m11.04.712.981[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m11.04.713.763[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.424 (> 0.100 thold), f_keep = 0.051
+[34m11.04.713.765[0m [32mI [0msrv  get_availabl: updating prompt cache
+[34m11.04.714.115[0m [35mW srv   prompt_save:  - saving prompt with length 28688, total state size = 1943.174 MiB (draft: 0.000 MiB)
+[0m[34m11.06.035.844[0m [32mI [0msrv          load:  - looking for better prompt, base f_keep = 0.051, sim = 0.424
+[34m11.06.035.851[0m [32mI [0msrv        update:  - cache state: 2 prompts, 3950.958 MiB (limits: 8192.000 MiB, 207872 tokens, 207872 est)
+[34m11.06.035.852[0m [32mI [0msrv        update:    - prompt 0x5b8898356f40:    1002 tokens, checkpoints:  2,   511.523 MiB
+[34m11.06.035.853[0m [32mI [0msrv        update:    - prompt 0x79a9e83633e0:   28688 tokens, checkpoints: 10,  3439.435 MiB
+[34m11.06.035.853[0m [32mI [0msrv  get_availabl: prompt cache update took 1322.09 ms
+[34m11.06.036.248[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m11.06.036.290[0m [32mI [0mslot launch_slot_: id  0 | task 17822 | processing task, is_child = 0
+[34m11.06.036.297[0m [35mW slot update_slots: id  0 | task 17822 | n_past = 1455, slot.prompt.tokens.size() = 28688, seq_id = 0, pos_min = 28687, n_swa = 0
+[0m[34m11.06.036.297[0m [32mI [0mslot update_slots: id  0 | task 17822 | Checking checkpoint with [28502, 28502] against 1455...
+[34m11.06.036.298[0m [32mI [0mslot update_slots: id  0 | task 17822 | Checking checkpoint with [28282, 28282] against 1455...
+[34m11.06.036.298[0m [32mI [0mslot update_slots: id  0 | task 17822 | Checking checkpoint with [27953, 27953] against 1455...
+[34m11.06.036.298[0m [32mI [0mslot update_slots: id  0 | task 17822 | Checking checkpoint with [27441, 27441] against 1455...
+[34m11.06.036.298[0m [32mI [0mslot update_slots: id  0 | task 17822 | Checking checkpoint with [19390, 19390] against 1455...
+[34m11.06.036.298[0m [32mI [0mslot update_slots: id  0 | task 17822 | Checking checkpoint with [11198, 11198] against 1455...
+[34m11.06.036.299[0m [32mI [0mslot update_slots: id  0 | task 17822 | Checking checkpoint with [10978, 10978] against 1455...
+[34m11.06.036.299[0m [32mI [0mslot update_slots: id  0 | task 17822 | Checking checkpoint with [10797, 10797] against 1455...
+[34m11.06.036.299[0m [32mI [0mslot update_slots: id  0 | task 17822 | Checking checkpoint with [10285, 10285] against 1455...
+[34m11.06.036.299[0m [32mI [0mslot update_slots: id  0 | task 17822 | Checking checkpoint with [8191, 8191] against 1455...
+[34m11.06.036.300[0m [35mW slot update_slots: id  0 | task 17822 | forcing full prompt re-processing due to lack of cache data (likely due to SWA or hybrid/recurrent memory, see https://github.com/ggml-org/llama.cpp/pull/13194#issuecomment-2868343055)
+[0m[34m11.06.036.300[0m [35mW slot update_slots: id  0 | task 17822 | erased invalidated context checkpoint (pos_min = 8191, pos_max = 8191, n_tokens = 8192, n_swa = 0, pos_next = 0, size = 149.626 MiB)
+[0m[34m11.06.039.752[0m [35mW slot update_slots: id  0 | task 17822 | erased invalidated context checkpoint (pos_min = 10285, pos_max = 10285, n_tokens = 10286, n_swa = 0, pos_next = 0, size = 149.626 MiB)
+[0m[34m11.06.043.061[0m [35mW slot update_slots: id  0 | task 17822 | erased invalidated context checkpoint (pos_min = 10797, pos_max = 10797, n_tokens = 10798, n_swa = 0, pos_next = 0, size = 149.626 MiB)
+[0m[34m11.06.046.331[0m [35mW slot update_slots: id  0 | task 17822 | erased invalidated context checkpoint (pos_min = 10978, pos_max = 10978, n_tokens = 10979, n_swa = 0, pos_next = 0, size = 149.626 MiB)
+[0m[34m11.06.050.165[0m [35mW slot update_slots: id  0 | task 17822 | erased invalidated context checkpoint (pos_min = 11198, pos_max = 11198, n_tokens = 11199, n_swa = 0, pos_next = 0, size = 149.626 MiB)
+[0m[34m11.06.053.856[0m [35mW slot update_slots: id  0 | task 17822 | erased invalidated context checkpoint (pos_min = 19390, pos_max = 19390, n_tokens = 19391, n_swa = 0, pos_next = 0, size = 149.626 MiB)
+[0m[34m11.06.057.337[0m [35mW slot update_slots: id  0 | task 17822 | erased invalidated context checkpoint (pos_min = 27441, pos_max = 27441, n_tokens = 27442, n_swa = 0, pos_next = 0, size = 149.626 MiB)
+[0m[34m11.06.060.669[0m [35mW slot update_slots: id  0 | task 17822 | erased invalidated context checkpoint (pos_min = 27953, pos_max = 27953, n_tokens = 27954, n_swa = 0, pos_next = 0, size = 149.626 MiB)
+[0m[34m11.06.063.788[0m [35mW slot update_slots: id  0 | task 17822 | erased invalidated context checkpoint (pos_min = 28282, pos_max = 28282, n_tokens = 28283, n_swa = 0, pos_next = 0, size = 149.626 MiB)
+[0m[34m11.06.066.978[0m [35mW slot update_slots: id  0 | task 17822 | erased invalidated context checkpoint (pos_min = 28502, pos_max = 28502, n_tokens = 28503, n_swa = 0, pos_next = 0, size = 149.626 MiB)
+[0m[34m11.08.833.871[0m [32mI [0mslot create_check: id  0 | task 17822 | created context checkpoint 1 of 32 (pos_min = 2915, pos_max = 2915, n_tokens = 2916, size = 149.626 MiB)
+[34m11.09.350.740[0m [32mI [0mslot create_check: id  0 | task 17822 | created context checkpoint 2 of 32 (pos_min = 3427, pos_max = 3427, n_tokens = 3428, size = 149.626 MiB)
+[34m11.12.585.894[0m [32mI [0mslot print_timing: id  0 | task 17822 | n_decoded =    100, tg =  31.34 t/s
+[34m11.15.614.776[0m [32mI [0mslot print_timing: id  0 | task 17822 | n_decoded =    194, tg =  31.19 t/s
+[34m11.18.644.580[0m [32mI [0mslot print_timing: id  0 | task 17822 | n_decoded =    288, tg =  31.14 t/s
+[34m11.21.676.470[0m [32mI [0mslot print_timing: id  0 | task 17822 | n_decoded =    382, tg =  31.10 t/s
+[34m11.22.742.913[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m11.24.098.094[0m [32mI [0mslot print_timing: id  0 | task 17822 | 
+prompt eval time =    3358.41 ms /  3432 tokens (    0.98 ms per token,  1021.91 tokens per second)
+       eval time =   14703.38 ms /   457 tokens (   32.17 ms per token,    31.08 tokens per second)
+      total time =   18061.78 ms /  3889 tokens
+[34m11.24.098.215[0m [32mI [0mslot      release: id  0 | task 17822 | stop processing: n_tokens = 3888, truncated = 0
+[34m11.24.098.272[0m [32mI [0msrv  update_slots: all slots are idle
+[34m11.24.216.341[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m11.24.217.010[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.154 (> 0.100 thold), f_keep = 1.000
+[34m11.24.217.436[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m11.24.217.466[0m [32mI [0mslot launch_slot_: id  0 | task 18283 | processing task, is_child = 0
+[34m11.27.718.262[0m [32mI [0mslot print_timing: id  0 | task 18283 | prompt processing, n_tokens =   4096, progress = 0.32, t =   3.50 s / 1170.02 tokens per second
+[34m11.29.767.201[0m [32mI [0mslot print_timing: id  0 | task 18283 | prompt processing, n_tokens =   6144, progress = 0.40, t =   5.55 s / 1107.08 tokens per second
+[34m11.31.858.427[0m [32mI [0mslot print_timing: id  0 | task 18283 | prompt processing, n_tokens =   8192, progress = 0.48, t =   7.64 s / 1072.12 tokens per second
+[34m11.31.858.543[0m [32mI [0mslot update_slots: id  0 | task 18283 | 8192 tokens since last checkpoint at 3428, creating new checkpoint during processing at position 14128
+[34m11.32.415.820[0m [32mI [0mslot create_check: id  0 | task 18283 | created context checkpoint 3 of 32 (pos_min = 12079, pos_max = 12079, n_tokens = 12080, size = 149.626 MiB)
+[34m11.34.030.433[0m [32mI [0mslot print_timing: id  0 | task 18283 | prompt processing, n_tokens =  10240, progress = 0.56, t =   9.81 s / 1043.52 tokens per second
+[34m11.36.202.757[0m [32mI [0mslot print_timing: id  0 | task 18283 | prompt processing, n_tokens =  12288, progress = 0.64, t =  11.99 s / 1025.26 tokens per second
+[34m11.38.415.892[0m [32mI [0mslot print_timing: id  0 | task 18283 | prompt processing, n_tokens =  14336, progress = 0.72, t =  14.20 s / 1009.69 tokens per second
+[34m11.40.668.391[0m [32mI [0mslot print_timing: id  0 | task 18283 | prompt processing, n_tokens =  16384, progress = 0.80, t =  16.45 s / 995.93 tokens per second
+[34m11.40.668.515[0m [32mI [0mslot update_slots: id  0 | task 18283 | 8192 tokens since last checkpoint at 12080, creating new checkpoint during processing at position 22320
+[34m11.41.258.363[0m [32mI [0mslot create_check: id  0 | task 18283 | created context checkpoint 4 of 32 (pos_min = 20271, pos_max = 20271, n_tokens = 20272, size = 149.626 MiB)
+[34m11.42.994.221[0m [32mI [0mslot print_timing: id  0 | task 18283 | prompt processing, n_tokens =  18432, progress = 0.88, t =  18.78 s / 981.64 tokens per second
+[34m11.45.328.516[0m [32mI [0mslot print_timing: id  0 | task 18283 | prompt processing, n_tokens =  20480, progress = 0.97, t =  21.11 s / 970.11 tokens per second
+[34m11.45.917.656[0m [32mI [0mslot print_timing: id  0 | task 18283 | prompt processing, n_tokens =  20817, progress = 0.98, t =  21.70 s / 959.30 tokens per second
+[34m11.46.369.360[0m [32mI [0mslot create_check: id  0 | task 18283 | created context checkpoint 5 of 32 (pos_min = 24704, pos_max = 24704, n_tokens = 24705, size = 149.626 MiB)
+[34m11.46.379.536[0m [32mI [0mslot print_timing: id  0 | task 18283 | prompt processing, n_tokens =  21329, progress = 1.00, t =  22.16 s / 962.41 tokens per second
+[34m11.46.998.959[0m [32mI [0mslot create_check: id  0 | task 18283 | created context checkpoint 6 of 32 (pos_min = 25216, pos_max = 25216, n_tokens = 25217, size = 149.626 MiB)
+[34m11.47.425.155[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m11.49.384.393[0m [32mI [0mslot print_timing: id  0 | task 18283 | 
+prompt eval time =   22828.50 ms / 21333 tokens (    1.07 ms per token,   934.49 tokens per second)
+       eval time =    2338.41 ms /    69 tokens (   33.89 ms per token,    29.51 tokens per second)
+      total time =   25166.91 ms / 21402 tokens
+[34m11.49.384.832[0m [32mI [0mslot      release: id  0 | task 18283 | stop processing: n_tokens = 25289, truncated = 0
+[34m11.49.384.854[0m [32mI [0msrv  update_slots: all slots are idle
+[34m11.49.502.776[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m11.49.503.471[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.911 (> 0.100 thold), f_keep = 1.000
+[34m11.49.503.843[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m11.49.503.875[0m [32mI [0mslot launch_slot_: id  0 | task 18365 | processing task, is_child = 0
+[34m11.51.893.572[0m [32mI [0mslot create_check: id  0 | task 18365 | created context checkpoint 7 of 32 (pos_min = 27240, pos_max = 27240, n_tokens = 27241, size = 149.626 MiB)
+[34m11.52.537.824[0m [32mI [0mslot create_check: id  0 | task 18365 | created context checkpoint 8 of 32 (pos_min = 27752, pos_max = 27752, n_tokens = 27753, size = 149.626 MiB)
+[34m11.53.104.673[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m11.55.251.345[0m [32mI [0mslot print_timing: id  0 | task 18365 | 
+prompt eval time =    3081.49 ms /  2468 tokens (    1.25 ms per token,   800.91 tokens per second)
+       eval time =    2665.96 ms /    78 tokens (   34.18 ms per token,    29.26 tokens per second)
+      total time =    5747.45 ms /  2546 tokens
+[34m11.55.251.862[0m [32mI [0mslot      release: id  0 | task 18365 | stop processing: n_tokens = 27834, truncated = 0
+[34m11.55.251.882[0m [32mI [0msrv  update_slots: all slots are idle
+[34m11.55.351.140[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m11.55.351.800[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.998 (> 0.100 thold), f_keep = 1.000
+[34m11.55.352.161[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m11.55.352.190[0m [32mI [0mslot launch_slot_: id  0 | task 18446 | processing task, is_child = 0
+[34m11.55.429.468[0m [32mI [0mslot create_check: id  0 | task 18446 | created context checkpoint 9 of 32 (pos_min = 27833, pos_max = 27833, n_tokens = 27834, size = 149.626 MiB)
+[34m11.56.095.757[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m11.58.242.617[0m [32mI [0mslot print_timing: id  0 | task 18446 | 
+prompt eval time =     257.15 ms /    57 tokens (    4.51 ms per token,   221.66 tokens per second)
+       eval time =    2633.26 ms /    77 tokens (   34.20 ms per token,    29.24 tokens per second)
+      total time =    2890.41 ms /   134 tokens
+[34m11.58.243.117[0m [32mI [0mslot      release: id  0 | task 18446 | stop processing: n_tokens = 27967, truncated = 0
+[34m11.58.243.137[0m [32mI [0msrv  update_slots: all slots are idle
+[34m11.58.350.677[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m11.58.351.340[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.998 (> 0.100 thold), f_keep = 1.000
+[34m11.58.351.687[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m11.58.351.717[0m [32mI [0mslot launch_slot_: id  0 | task 18525 | processing task, is_child = 0
+[34m11.58.430.243[0m [32mI [0mslot create_check: id  0 | task 18525 | created context checkpoint 10 of 32 (pos_min = 27966, pos_max = 27966, n_tokens = 27967, size = 149.626 MiB)
+[34m11.59.131.902[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m12.01.278.846[0m [32mI [0mslot print_timing: id  0 | task 18525 | 
+prompt eval time =     258.92 ms /    57 tokens (    4.54 ms per token,   220.15 tokens per second)
+       eval time =    2668.19 ms /    78 tokens (   34.21 ms per token,    29.23 tokens per second)
+      total time =    2927.11 ms /   135 tokens
+[34m12.01.279.325[0m [32mI [0mslot      release: id  0 | task 18525 | stop processing: n_tokens = 28101, truncated = 0
+[34m12.01.279.347[0m [32mI [0msrv  update_slots: all slots are idle
+[34m12.01.372.737[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m12.01.373.389[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.984 (> 0.100 thold), f_keep = 1.000
+[34m12.01.373.756[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m12.01.373.786[0m [32mI [0mslot launch_slot_: id  0 | task 18605 | processing task, is_child = 0
+[34m12.01.453.969[0m [32mI [0mslot create_check: id  0 | task 18605 | created context checkpoint 11 of 32 (pos_min = 28100, pos_max = 28100, n_tokens = 28101, size = 149.626 MiB)
+[34m12.02.075.934[0m [32mI [0mslot create_check: id  0 | task 18605 | created context checkpoint 12 of 32 (pos_min = 28563, pos_max = 28563, n_tokens = 28564, size = 149.626 MiB)
+[34m12.02.680.148[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m12.05.280.498[0m [32mI [0mslot print_timing: id  0 | task 18605 | 
+prompt eval time =     749.62 ms /   467 tokens (    1.61 ms per token,   622.98 tokens per second)
+       eval time =    3157.07 ms /    92 tokens (   34.32 ms per token,    29.14 tokens per second)
+      total time =    3906.70 ms /   559 tokens
+[34m12.05.280.993[0m [32mI [0mslot      release: id  0 | task 18605 | stop processing: n_tokens = 28659, truncated = 0
+[34m12.05.281.013[0m [32mI [0msrv  update_slots: all slots are idle
+[34m12.05.396.924[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m12.05.397.617[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.995 (> 0.100 thold), f_keep = 1.000
+[34m12.05.397.989[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m12.05.398.020[0m [32mI [0mslot launch_slot_: id  0 | task 18699 | processing task, is_child = 0
+[34m12.05.476.955[0m [32mI [0mslot create_check: id  0 | task 18699 | created context checkpoint 13 of 32 (pos_min = 28658, pos_max = 28658, n_tokens = 28659, size = 149.626 MiB)
+[34m12.05.802.239[0m [32mI [0mslot create_check: id  0 | task 18699 | created context checkpoint 14 of 32 (pos_min = 28811, pos_max = 28811, n_tokens = 28812, size = 149.626 MiB)
+[34m12.06.405.943[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m12.09.045.777[0m [32mI [0mslot print_timing: id  0 | task 18699 | 
+prompt eval time =     451.09 ms /   157 tokens (    2.87 ms per token,   348.04 tokens per second)
+       eval time =    3196.65 ms /    93 tokens (   34.37 ms per token,    29.09 tokens per second)
+      total time =    3647.74 ms /   250 tokens
+[34m12.09.046.263[0m [32mI [0mslot      release: id  0 | task 18699 | stop processing: n_tokens = 28908, truncated = 0
+[34m12.09.046.284[0m [32mI [0msrv  update_slots: all slots are idle
+[34m12.09.166.881[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m12.09.167.642[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.988 (> 0.100 thold), f_keep = 1.000
+[34m12.09.168.007[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m12.09.168.045[0m [32mI [0mslot launch_slot_: id  0 | task 18794 | processing task, is_child = 0
+[34m12.09.253.109[0m [32mI [0mslot create_check: id  0 | task 18794 | created context checkpoint 15 of 32 (pos_min = 28907, pos_max = 28907, n_tokens = 28908, size = 149.626 MiB)
+[34m12.09.739.804[0m [32mI [0mslot create_check: id  0 | task 18794 | created context checkpoint 16 of 32 (pos_min = 29261, pos_max = 29261, n_tokens = 29262, size = 149.626 MiB)
+[34m12.10.309.590[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m12.12.708.607[0m [32mI [0mslot print_timing: id  0 | task 18794 | 
+prompt eval time =     619.14 ms /   358 tokens (    1.73 ms per token,   578.22 tokens per second)
+       eval time =    2921.41 ms /    85 tokens (   34.37 ms per token,    29.10 tokens per second)
+      total time =    3540.55 ms /   443 tokens
+[34m12.12.709.096[0m [32mI [0mslot      release: id  0 | task 18794 | stop processing: n_tokens = 29350, truncated = 0
+[34m12.12.709.118[0m [32mI [0msrv  update_slots: all slots are idle
+[34m12.12.825.808[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m12.12.826.545[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.986 (> 0.100 thold), f_keep = 1.000
+[34m12.12.826.928[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m12.12.826.960[0m [32mI [0mslot launch_slot_: id  0 | task 18881 | processing task, is_child = 0
+[34m12.12.905.333[0m [32mI [0mslot create_check: id  0 | task 18881 | created context checkpoint 17 of 32 (pos_min = 29349, pos_max = 29349, n_tokens = 29350, size = 149.626 MiB)
+[34m12.13.499.950[0m [32mI [0mslot create_check: id  0 | task 18881 | created context checkpoint 18 of 32 (pos_min = 29747, pos_max = 29747, n_tokens = 29748, size = 149.626 MiB)
+[34m12.14.105.779[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m12.16.540.081[0m [32mI [0mslot print_timing: id  0 | task 18881 | 
+prompt eval time =     720.32 ms /   402 tokens (    1.79 ms per token,   558.08 tokens per second)
+       eval time =    2992.78 ms /    87 tokens (   34.40 ms per token,    29.07 tokens per second)
+      total time =    3713.11 ms /   489 tokens
+[34m12.16.540.576[0m [32mI [0mslot      release: id  0 | task 18881 | stop processing: n_tokens = 29838, truncated = 0
+[34m12.16.540.597[0m [32mI [0msrv  update_slots: all slots are idle
+[34m12.16.663.755[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m12.16.664.418[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.979 (> 0.100 thold), f_keep = 1.000
+[34m12.16.664.792[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m12.16.664.825[0m [32mI [0mslot launch_slot_: id  0 | task 18970 | processing task, is_child = 0
+[34m12.16.898.407[0m [32mI [0mslot create_check: id  0 | task 18970 | created context checkpoint 19 of 32 (pos_min = 29958, pos_max = 29958, n_tokens = 29959, size = 149.626 MiB)
+[34m12.17.553.573[0m [32mI [0mslot create_check: id  0 | task 18970 | created context checkpoint 20 of 32 (pos_min = 30470, pos_max = 30470, n_tokens = 30471, size = 149.626 MiB)
+[34m12.17.949.340[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m12.20.378.495[0m [32mI [0mslot print_timing: id  0 | task 18970 | 
+prompt eval time =     936.50 ms /   637 tokens (    1.47 ms per token,   680.19 tokens per second)
+       eval time =    2777.15 ms /    81 tokens (   34.29 ms per token,    29.17 tokens per second)
+      total time =    3713.65 ms /   718 tokens
+[34m12.20.378.998[0m [32mI [0mslot      release: id  0 | task 18970 | stop processing: n_tokens = 30555, truncated = 0
+[34m12.20.379.019[0m [32mI [0msrv  update_slots: all slots are idle
+[34m12.20.514.553[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m12.20.515.176[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.983 (> 0.100 thold), f_keep = 1.000
+[34m12.20.515.546[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m12.20.515.580[0m [32mI [0mslot launch_slot_: id  0 | task 19054 | processing task, is_child = 0
+[34m12.20.588.089[0m [32mI [0mslot create_check: id  0 | task 19054 | created context checkpoint 21 of 32 (pos_min = 30556, pos_max = 30556, n_tokens = 30557, size = 149.626 MiB)
+[34m12.21.252.971[0m [32mI [0mslot create_check: id  0 | task 19054 | created context checkpoint 22 of 32 (pos_min = 31068, pos_max = 31068, n_tokens = 31069, size = 149.626 MiB)
+[34m12.21.931.475[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m12.24.345.195[0m [32mI [0mslot print_timing: id  0 | task 19054 | 
+prompt eval time =     786.22 ms /   518 tokens (    1.52 ms per token,   658.85 tokens per second)
+       eval time =    3043.38 ms /    88 tokens (   34.58 ms per token,    28.92 tokens per second)
+      total time =    3829.60 ms /   606 tokens
+[34m12.24.345.974[0m [32mI [0mslot      release: id  0 | task 19054 | stop processing: n_tokens = 31160, truncated = 0
+[34m12.24.346.015[0m [32mI [0msrv  update_slots: all slots are idle
+[34m12.24.447.754[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m12.24.448.381[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.957 (> 0.100 thold), f_keep = 1.000
+[34m12.24.448.755[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m12.24.448.794[0m [32mI [0mslot launch_slot_: id  0 | task 19145 | processing task, is_child = 0
+[34m12.25.584.500[0m [32mI [0mslot create_check: id  0 | task 19145 | created context checkpoint 23 of 32 (pos_min = 32044, pos_max = 32044, n_tokens = 32045, size = 149.626 MiB)
+[34m12.26.248.392[0m [32mI [0mslot create_check: id  0 | task 19145 | created context checkpoint 24 of 32 (pos_min = 32556, pos_max = 32556, n_tokens = 32557, size = 149.626 MiB)
+[34m12.26.856.761[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m12.29.240.906[0m [32mI [0mslot print_timing: id  0 | task 19145 | 
+prompt eval time =    1846.15 ms /  1401 tokens (    1.32 ms per token,   758.88 tokens per second)
+       eval time =    2945.95 ms /    85 tokens (   34.66 ms per token,    28.85 tokens per second)
+      total time =    4792.10 ms /  1486 tokens
+[34m12.29.241.473[0m [32mI [0mslot      release: id  0 | task 19145 | stop processing: n_tokens = 32645, truncated = 0
+[34m12.29.241.497[0m [32mI [0msrv  update_slots: all slots are idle
+[34m12.29.361.419[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m12.29.362.093[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.963 (> 0.100 thold), f_keep = 1.000
+[34m12.29.362.462[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m12.29.362.496[0m [32mI [0mslot launch_slot_: id  0 | task 19233 | processing task, is_child = 0
+[34m12.30.379.287[0m [32mI [0mslot create_check: id  0 | task 19233 | created context checkpoint 25 of 32 (pos_min = 33397, pos_max = 33397, n_tokens = 33398, size = 149.626 MiB)
+[34m12.31.052.537[0m [32mI [0mslot create_check: id  0 | task 19233 | created context checkpoint 26 of 32 (pos_min = 33909, pos_max = 33909, n_tokens = 33910, size = 149.626 MiB)
+[34m12.31.454.387[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m12.33.923.412[0m [32mI [0mslot print_timing: id  0 | task 19233 | 
+prompt eval time =    1738.59 ms /  1269 tokens (    1.37 ms per token,   729.90 tokens per second)
+       eval time =    2822.31 ms /    81 tokens (   34.84 ms per token,    28.70 tokens per second)
+      total time =    4560.90 ms /  1350 tokens
+[34m12.33.923.954[0m [32mI [0mslot      release: id  0 | task 19233 | stop processing: n_tokens = 33994, truncated = 0
+[34m12.33.923.977[0m [32mI [0msrv  update_slots: all slots are idle
+[34m12.34.052.350[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m12.34.053.036[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.985 (> 0.100 thold), f_keep = 1.000
+[34m12.34.053.835[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m12.34.053.866[0m [32mI [0mslot launch_slot_: id  0 | task 19317 | processing task, is_child = 0
+[34m12.34.131.505[0m [32mI [0mslot create_check: id  0 | task 19317 | created context checkpoint 27 of 32 (pos_min = 33995, pos_max = 33995, n_tokens = 33996, size = 149.626 MiB)
+[34m12.34.806.756[0m [32mI [0mslot create_check: id  0 | task 19317 | created context checkpoint 28 of 32 (pos_min = 34507, pos_max = 34507, n_tokens = 34508, size = 149.626 MiB)
+[34m12.35.419.595[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m12.37.855.723[0m [32mI [0mslot print_timing: id  0 | task 19317 | 
+prompt eval time =     800.75 ms /   518 tokens (    1.55 ms per token,   646.90 tokens per second)
+       eval time =    3001.09 ms /    86 tokens (   34.90 ms per token,    28.66 tokens per second)
+      total time =    3801.84 ms /   604 tokens
+[34m12.37.856.404[0m [32mI [0mslot      release: id  0 | task 19317 | stop processing: n_tokens = 34597, truncated = 0
+[34m12.37.856.425[0m [32mI [0msrv  update_slots: all slots are idle
+[34m12.37.989.799[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m12.37.990.486[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.986 (> 0.100 thold), f_keep = 1.000
+[34m12.37.990.983[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m12.37.991.021[0m [32mI [0mslot launch_slot_: id  0 | task 19406 | processing task, is_child = 0
+[34m12.38.070.769[0m [32mI [0mslot create_check: id  0 | task 19406 | created context checkpoint 29 of 32 (pos_min = 34596, pos_max = 34596, n_tokens = 34597, size = 149.626 MiB)
+[34m12.38.742.468[0m [32mI [0mslot create_check: id  0 | task 19406 | created context checkpoint 30 of 32 (pos_min = 35079, pos_max = 35079, n_tokens = 35080, size = 149.626 MiB)
+[34m12.42.286.543[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =    100, tg =  28.61 t/s
+[34m12.45.287.534[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =    185, tg =  28.48 t/s
+[34m12.48.288.005[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =    270, tg =  28.43 t/s
+[34m12.51.290.236[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =    355, tg =  28.40 t/s
+[34m12.54.293.037[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =    440, tg =  28.38 t/s
+[34m12.57.298.430[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =    525, tg =  28.37 t/s
+[34m13.00.300.837[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =    610, tg =  28.36 t/s
+[34m13.03.305.547[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =    695, tg =  28.35 t/s
+[34m13.06.306.571[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =    780, tg =  28.35 t/s
+[34m13.09.338.940[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =    866, tg =  28.35 t/s
+[34m13.12.372.278[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =    952, tg =  28.35 t/s
+[34m13.15.373.151[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   1037, tg =  28.35 t/s
+[34m13.18.377.175[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   1122, tg =  28.34 t/s
+[34m13.21.387.756[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   1207, tg =  28.34 t/s
+[34m13.24.402.699[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   1292, tg =  28.33 t/s
+[34m13.27.413.555[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   1377, tg =  28.32 t/s
+[34m13.30.422.958[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   1462, tg =  28.32 t/s
+[34m13.33.435.019[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   1547, tg =  28.31 t/s
+[34m13.36.444.623[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   1632, tg =  28.31 t/s
+[34m13.39.456.814[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   1717, tg =  28.30 t/s
+[34m13.42.460.656[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   1802, tg =  28.30 t/s
+[34m13.45.464.902[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   1887, tg =  28.30 t/s
+[34m13.48.468.327[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   1972, tg =  28.30 t/s
+[34m13.51.478.704[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   2057, tg =  28.30 t/s
+[34m13.54.485.098[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   2142, tg =  28.30 t/s
+[34m13.57.499.729[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   2227, tg =  28.29 t/s
+[34m14.00.518.557[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   2312, tg =  28.29 t/s
+[34m14.03.532.749[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   2397, tg =  28.29 t/s
+[34m14.06.559.240[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   2482, tg =  28.28 t/s
+[34m14.09.571.199[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   2567, tg =  28.28 t/s
+[34m14.12.581.410[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   2652, tg =  28.28 t/s
+[34m14.15.596.158[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   2737, tg =  28.27 t/s
+[34m14.18.620.745[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   2822, tg =  28.27 t/s
+[34m14.21.643.063[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   2907, tg =  28.26 t/s
+[34m14.24.657.853[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   2992, tg =  28.26 t/s
+[34m14.27.674.388[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   3077, tg =  28.26 t/s
+[34m14.30.689.120[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   3162, tg =  28.26 t/s
+[34m14.33.708.039[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   3247, tg =  28.26 t/s
+[34m14.36.726.735[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   3332, tg =  28.25 t/s
+[34m14.39.743.842[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   3417, tg =  28.25 t/s
+[34m14.42.760.540[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   3502, tg =  28.25 t/s
+[34m14.45.780.896[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   3587, tg =  28.25 t/s
+[34m14.48.809.433[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   3672, tg =  28.24 t/s
+[34m14.51.839.222[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   3757, tg =  28.24 t/s
+[34m14.54.861.325[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   3842, tg =  28.24 t/s
+[34m14.57.882.757[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   3927, tg =  28.23 t/s
+[34m15.00.912.348[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   4012, tg =  28.23 t/s
+[34m15.03.919.479[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   4096, tg =  28.22 t/s
+[34m15.06.920.456[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   4180, tg =  28.22 t/s
+[34m15.09.922.871[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   4264, tg =  28.21 t/s
+[34m15.12.927.620[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   4348, tg =  28.21 t/s
+[34m15.15.928.000[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   4432, tg =  28.20 t/s
+[34m15.18.963.480[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   4517, tg =  28.20 t/s
+[34m15.21.967.704[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   4601, tg =  28.20 t/s
+[34m15.24.972.456[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   4685, tg =  28.19 t/s
+[34m15.27.975.288[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   4769, tg =  28.19 t/s
+[34m15.30.978.458[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   4853, tg =  28.18 t/s
+[34m15.33.983.710[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   4937, tg =  28.18 t/s
+[34m15.36.991.240[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   5021, tg =  28.18 t/s
+[34m15.39.998.877[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   5105, tg =  28.17 t/s
+[34m15.43.008.148[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   5189, tg =  28.17 t/s
+[34m15.46.018.475[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   5273, tg =  28.16 t/s
+[34m15.49.027.182[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   5357, tg =  28.16 t/s
+[34m15.52.037.869[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   5441, tg =  28.16 t/s
+[34m15.55.049.278[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   5525, tg =  28.15 t/s
+[34m15.58.059.829[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   5609, tg =  28.15 t/s
+[34m16.01.073.288[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   5693, tg =  28.14 t/s
+[34m16.03.154.347[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.04.087.710[0m [32mI [0mslot print_timing: id  0 | task 19406 | n_decoded =   5777, tg =  28.14 t/s
+[34m16.06.601.762[0m [32mI [0mslot print_timing: id  0 | task 19406 | 
+prompt eval time =     799.76 ms /   487 tokens (    1.64 ms per token,   608.93 tokens per second)
+       eval time =  207810.96 ms /  5847 tokens (   35.54 ms per token,    28.14 tokens per second)
+      total time =  208610.72 ms /  6334 tokens
+[34m16.06.602.495[0m [32mI [0mslot      release: id  0 | task 19406 | stop processing: n_tokens = 40930, truncated = 0
+[34m16.06.602.538[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.06.751.764[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.06.752.386[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.986 (> 0.100 thold), f_keep = 1.000
+[34m16.06.752.752[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.06.752.790[0m [32mI [0mslot launch_slot_: id  0 | task 25255 | processing task, is_child = 0
+[34m16.06.929.127[0m [32mI [0mslot create_check: id  0 | task 25255 | created context checkpoint 31 of 32 (pos_min = 40975, pos_max = 40975, n_tokens = 40976, size = 149.626 MiB)
+[34m16.07.644.521[0m [32mI [0mslot create_check: id  0 | task 25255 | created context checkpoint 32 of 32 (pos_min = 41487, pos_max = 41487, n_tokens = 41488, size = 149.626 MiB)
+[34m16.08.233.994[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.10.717.774[0m [32mI [0mslot print_timing: id  0 | task 25255 | 
+prompt eval time =     940.77 ms /   562 tokens (    1.67 ms per token,   597.38 tokens per second)
+       eval time =    3024.20 ms /    85 tokens (   35.58 ms per token,    28.11 tokens per second)
+      total time =    3964.97 ms /   647 tokens
+[34m16.10.718.469[0m [32mI [0mslot      release: id  0 | task 25255 | stop processing: n_tokens = 41576, truncated = 0
+[34m16.10.718.492[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.10.876.344[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.10.877.124[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.995 (> 0.100 thold), f_keep = 1.000
+[34m16.10.877.513[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.10.877.550[0m [32mI [0mslot launch_slot_: id  0 | task 25343 | processing task, is_child = 0
+[34m16.10.877.693[0m [35mW slot create_check: id  0 | task 25343 | erasing old context checkpoint (pos_min = 2915, pos_max = 2915, n_tokens = 2916, size = 149.626 MiB)
+[0m[34m16.10.962.652[0m [32mI [0mslot create_check: id  0 | task 25343 | created context checkpoint 32 of 32 (pos_min = 41575, pos_max = 41575, n_tokens = 41576, size = 149.626 MiB)
+[34m16.10.972.848[0m [35mW slot create_check: id  0 | task 25343 | erasing old context checkpoint (pos_min = 3427, pos_max = 3427, n_tokens = 3428, size = 149.626 MiB)
+[0m[34m16.11.335.432[0m [32mI [0mslot create_check: id  0 | task 25343 | created context checkpoint 32 of 32 (pos_min = 41777, pos_max = 41777, n_tokens = 41778, size = 149.626 MiB)
+[34m16.11.959.165[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.14.467.778[0m [32mI [0mslot print_timing: id  0 | task 25343 | 
+prompt eval time =     506.06 ms /   206 tokens (    2.46 ms per token,   407.07 tokens per second)
+       eval time =    3084.15 ms /    87 tokens (   35.45 ms per token,    28.21 tokens per second)
+      total time =    3590.21 ms /   293 tokens
+[34m16.14.468.543[0m [32mI [0mslot      release: id  0 | task 25343 | stop processing: n_tokens = 41868, truncated = 0
+[34m16.14.468.567[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.14.614.344[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.14.615.158[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.995 (> 0.100 thold), f_keep = 1.000
+[34m16.14.615.565[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.14.615.600[0m [32mI [0mslot launch_slot_: id  0 | task 25432 | processing task, is_child = 0
+[34m16.14.615.721[0m [35mW slot create_check: id  0 | task 25432 | erasing old context checkpoint (pos_min = 12079, pos_max = 12079, n_tokens = 12080, size = 149.626 MiB)
+[0m[34m16.14.694.587[0m [32mI [0mslot create_check: id  0 | task 25432 | created context checkpoint 32 of 32 (pos_min = 41867, pos_max = 41867, n_tokens = 41868, size = 149.626 MiB)
+[34m16.14.705.292[0m [35mW slot create_check: id  0 | task 25432 | erasing old context checkpoint (pos_min = 20271, pos_max = 20271, n_tokens = 20272, size = 149.626 MiB)
+[0m[34m16.15.086.115[0m [32mI [0mslot create_check: id  0 | task 25432 | created context checkpoint 32 of 32 (pos_min = 42087, pos_max = 42087, n_tokens = 42088, size = 149.626 MiB)
+[34m16.15.818.772[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.18.509.103[0m [32mI [0mslot print_timing: id  0 | task 25432 | 
+prompt eval time =     519.19 ms /   224 tokens (    2.32 ms per token,   431.44 tokens per second)
+       eval time =    3374.30 ms /    95 tokens (   35.52 ms per token,    28.15 tokens per second)
+      total time =    3893.49 ms /   319 tokens
+[34m16.18.509.851[0m [32mI [0mslot      release: id  0 | task 25432 | stop processing: n_tokens = 42186, truncated = 0
+[34m16.18.509.874[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.18.650.696[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.18.651.476[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.996 (> 0.100 thold), f_keep = 1.000
+[34m16.18.652.238[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.18.652.276[0m [32mI [0mslot launch_slot_: id  0 | task 25529 | processing task, is_child = 0
+[34m16.18.652.410[0m [35mW slot create_check: id  0 | task 25529 | erasing old context checkpoint (pos_min = 24704, pos_max = 24704, n_tokens = 24705, size = 149.626 MiB)
+[0m[34m16.18.731.272[0m [32mI [0mslot create_check: id  0 | task 25529 | created context checkpoint 32 of 32 (pos_min = 42185, pos_max = 42185, n_tokens = 42186, size = 149.626 MiB)
+[34m16.18.741.077[0m [35mW slot create_check: id  0 | task 25529 | erasing old context checkpoint (pos_min = 25216, pos_max = 25216, n_tokens = 25217, size = 149.626 MiB)
+[0m[34m16.19.097.449[0m [32mI [0mslot create_check: id  0 | task 25529 | created context checkpoint 32 of 32 (pos_min = 42357, pos_max = 42357, n_tokens = 42358, size = 149.626 MiB)
+[34m16.20.330.866[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.22.701.718[0m [32mI [0mslot print_timing: id  0 | task 25529 | n_decoded =    100, tg =  28.12 t/s
+[34m16.22.773.718[0m [32mI [0mslot print_timing: id  0 | task 25529 | 
+prompt eval time =     492.82 ms /   176 tokens (    2.80 ms per token,   357.13 tokens per second)
+       eval time =    3628.60 ms /   102 tokens (   35.57 ms per token,    28.11 tokens per second)
+      total time =    4121.43 ms /   278 tokens
+[34m16.22.774.485[0m [32mI [0mslot      release: id  0 | task 25529 | stop processing: n_tokens = 42463, truncated = 0
+[34m16.22.774.506[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.22.897.448[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.22.898.111[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 1.000
+[34m16.22.898.466[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.22.898.497[0m [32mI [0mslot launch_slot_: id  0 | task 25633 | processing task, is_child = 0
+[34m16.22.898.603[0m [35mW slot create_check: id  0 | task 25633 | erasing old context checkpoint (pos_min = 27240, pos_max = 27240, n_tokens = 27241, size = 149.626 MiB)
+[0m[34m16.22.977.937[0m [32mI [0mslot create_check: id  0 | task 25633 | created context checkpoint 32 of 32 (pos_min = 42462, pos_max = 42462, n_tokens = 42463, size = 149.626 MiB)
+[34m16.25.892.832[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.26.683.334[0m [32mI [0mslot print_timing: id  0 | task 25633 | n_decoded =    100, tg =  28.11 t/s
+[34m16.28.372.291[0m [32mI [0mslot print_timing: id  0 | task 25633 | 
+prompt eval time =     226.76 ms /    19 tokens (   11.93 ms per token,    83.79 tokens per second)
+       eval time =    5247.02 ms /   147 tokens (   35.69 ms per token,    28.02 tokens per second)
+      total time =    5473.78 ms /   166 tokens
+[34m16.28.373.014[0m [32mI [0mslot      release: id  0 | task 25633 | stop processing: n_tokens = 42628, truncated = 0
+[34m16.28.373.036[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.28.664.586[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.28.665.346[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.991 (> 0.100 thold), f_keep = 1.000
+[34m16.28.665.696[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.28.665.735[0m [32mI [0mslot launch_slot_: id  0 | task 25782 | processing task, is_child = 0
+[34m16.28.665.877[0m [35mW slot create_check: id  0 | task 25782 | erasing old context checkpoint (pos_min = 27752, pos_max = 27752, n_tokens = 27753, size = 149.626 MiB)
+[0m[34m16.28.742.951[0m [32mI [0mslot create_check: id  0 | task 25782 | created context checkpoint 32 of 32 (pos_min = 42627, pos_max = 42627, n_tokens = 42628, size = 149.626 MiB)
+[34m16.28.756.165[0m [35mW slot create_check: id  0 | task 25782 | erasing old context checkpoint (pos_min = 27833, pos_max = 27833, n_tokens = 27834, size = 149.626 MiB)
+[0m[34m16.29.287.243[0m [32mI [0mslot create_check: id  0 | task 25782 | created context checkpoint 32 of 32 (pos_min = 42991, pos_max = 42991, n_tokens = 42992, size = 149.626 MiB)
+[34m16.30.057.345[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.32.538.909[0m [32mI [0mslot print_timing: id  0 | task 25782 | 
+prompt eval time =     670.14 ms /   368 tokens (    1.82 ms per token,   549.14 tokens per second)
+       eval time =    3203.03 ms /    90 tokens (   35.59 ms per token,    28.10 tokens per second)
+      total time =    3873.16 ms /   458 tokens
+[34m16.32.539.597[0m [32mI [0mslot      release: id  0 | task 25782 | stop processing: n_tokens = 43085, truncated = 0
+[34m16.32.539.619[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.32.666.412[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.32.667.115[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.983 (> 0.100 thold), f_keep = 1.000
+[34m16.32.667.455[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.32.667.485[0m [32mI [0mslot launch_slot_: id  0 | task 25874 | processing task, is_child = 0
+[34m16.32.677.036[0m [35mW slot create_check: id  0 | task 25874 | erasing old context checkpoint (pos_min = 27966, pos_max = 27966, n_tokens = 27967, size = 149.626 MiB)
+[0m[34m16.33.076.706[0m [32mI [0mslot create_check: id  0 | task 25874 | created context checkpoint 32 of 32 (pos_min = 43333, pos_max = 43333, n_tokens = 43334, size = 149.626 MiB)
+[34m16.33.093.388[0m [35mW slot create_check: id  0 | task 25874 | erasing old context checkpoint (pos_min = 28100, pos_max = 28100, n_tokens = 28101, size = 149.626 MiB)
+[0m[34m16.33.800.786[0m [32mI [0mslot create_check: id  0 | task 25874 | created context checkpoint 32 of 32 (pos_min = 43845, pos_max = 43845, n_tokens = 43846, size = 149.626 MiB)
+[34m16.34.498.519[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.36.985.347[0m [32mI [0mslot print_timing: id  0 | task 25874 | 
+prompt eval time =    1181.29 ms /   765 tokens (    1.54 ms per token,   647.60 tokens per second)
+       eval time =    3136.56 ms /    88 tokens (   35.64 ms per token,    28.06 tokens per second)
+      total time =    4317.85 ms /   853 tokens
+[34m16.36.986.083[0m [32mI [0mslot      release: id  0 | task 25874 | stop processing: n_tokens = 43937, truncated = 0
+[34m16.36.986.103[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.37.100.201[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.37.100.929[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.996 (> 0.100 thold), f_keep = 1.000
+[34m16.37.101.314[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.37.101.347[0m [32mI [0mslot launch_slot_: id  0 | task 25965 | processing task, is_child = 0
+[34m16.37.101.456[0m [35mW slot create_check: id  0 | task 25965 | erasing old context checkpoint (pos_min = 28563, pos_max = 28563, n_tokens = 28564, size = 149.626 MiB)
+[0m[34m16.37.181.382[0m [32mI [0mslot create_check: id  0 | task 25965 | created context checkpoint 32 of 32 (pos_min = 43936, pos_max = 43936, n_tokens = 43937, size = 149.626 MiB)
+[34m16.37.191.729[0m [35mW slot create_check: id  0 | task 25965 | erasing old context checkpoint (pos_min = 28658, pos_max = 28658, n_tokens = 28659, size = 149.626 MiB)
+[0m[34m16.37.554.461[0m [32mI [0mslot create_check: id  0 | task 25965 | created context checkpoint 32 of 32 (pos_min = 44118, pos_max = 44118, n_tokens = 44119, size = 149.626 MiB)
+[34m16.38.144.254[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.40.417.837[0m [32mI [0mslot print_timing: id  0 | task 25965 | 
+prompt eval time =     500.83 ms /   186 tokens (    2.69 ms per token,   371.38 tokens per second)
+       eval time =    2815.64 ms /    79 tokens (   35.64 ms per token,    28.06 tokens per second)
+      total time =    3316.47 ms /   265 tokens
+[34m16.40.418.539[0m [32mI [0mslot      release: id  0 | task 25965 | stop processing: n_tokens = 44201, truncated = 0
+[34m16.40.418.562[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.40.572.754[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.40.573.473[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 1.000
+[34m16.40.573.811[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.40.573.841[0m [32mI [0mslot launch_slot_: id  0 | task 26046 | processing task, is_child = 0
+[34m16.40.573.957[0m [35mW slot create_check: id  0 | task 26046 | erasing old context checkpoint (pos_min = 28811, pos_max = 28811, n_tokens = 28812, size = 149.626 MiB)
+[0m[34m16.40.653.098[0m [32mI [0mslot create_check: id  0 | task 26046 | created context checkpoint 32 of 32 (pos_min = 44200, pos_max = 44200, n_tokens = 44201, size = 149.626 MiB)
+[34m16.41.409.914[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.43.670.396[0m [32mI [0mslot print_timing: id  0 | task 26046 | 
+prompt eval time =     221.21 ms /    19 tokens (   11.64 ms per token,    85.89 tokens per second)
+       eval time =    2875.33 ms /    80 tokens (   35.94 ms per token,    27.82 tokens per second)
+      total time =    3096.54 ms /    99 tokens
+[34m16.43.671.257[0m [32mI [0mslot      release: id  0 | task 26046 | stop processing: n_tokens = 44299, truncated = 0
+[34m16.43.671.281[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.43.788.493[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.43.789.333[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.991 (> 0.100 thold), f_keep = 1.000
+[34m16.43.790.558[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.43.790.633[0m [32mI [0mslot launch_slot_: id  0 | task 26128 | processing task, is_child = 0
+[34m16.43.790.962[0m [35mW slot create_check: id  0 | task 26128 | erasing old context checkpoint (pos_min = 28907, pos_max = 28907, n_tokens = 28908, size = 149.626 MiB)
+[0m[34m16.43.881.741[0m [32mI [0mslot create_check: id  0 | task 26128 | created context checkpoint 32 of 32 (pos_min = 44298, pos_max = 44298, n_tokens = 44299, size = 149.626 MiB)
+[34m16.43.898.750[0m [35mW slot create_check: id  0 | task 26128 | erasing old context checkpoint (pos_min = 29261, pos_max = 29261, n_tokens = 29262, size = 149.626 MiB)
+[0m[34m16.44.548.880[0m [32mI [0mslot create_check: id  0 | task 26128 | created context checkpoint 32 of 32 (pos_min = 44689, pos_max = 44689, n_tokens = 44690, size = 149.626 MiB)
+[34m16.45.107.284[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.47.424.342[0m [32mI [0mslot print_timing: id  0 | task 26128 | 
+prompt eval time =     808.38 ms /   395 tokens (    2.05 ms per token,   488.63 tokens per second)
+       eval time =    2825.31 ms /    79 tokens (   35.76 ms per token,    27.96 tokens per second)
+      total time =    3633.69 ms /   474 tokens
+[34m16.47.425.050[0m [32mI [0mslot      release: id  0 | task 26128 | stop processing: n_tokens = 44772, truncated = 0
+[34m16.47.425.075[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.47.572.400[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.47.573.076[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.996 (> 0.100 thold), f_keep = 1.000
+[34m16.47.573.416[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.47.573.449[0m [32mI [0mslot launch_slot_: id  0 | task 26209 | processing task, is_child = 0
+[34m16.47.573.562[0m [35mW slot create_check: id  0 | task 26209 | erasing old context checkpoint (pos_min = 29349, pos_max = 29349, n_tokens = 29350, size = 149.626 MiB)
+[0m[34m16.47.652.351[0m [32mI [0mslot create_check: id  0 | task 26209 | created context checkpoint 32 of 32 (pos_min = 44771, pos_max = 44771, n_tokens = 44772, size = 149.626 MiB)
+[34m16.47.662.452[0m [35mW slot create_check: id  0 | task 26209 | erasing old context checkpoint (pos_min = 29747, pos_max = 29747, n_tokens = 29748, size = 149.626 MiB)
+[0m[34m16.48.023.438[0m [32mI [0mslot create_check: id  0 | task 26209 | created context checkpoint 32 of 32 (pos_min = 44940, pos_max = 44940, n_tokens = 44941, size = 149.626 MiB)
+[34m16.48.687.382[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.51.181.317[0m [32mI [0mslot print_timing: id  0 | task 26209 | 
+prompt eval time =     497.99 ms /   173 tokens (    2.88 ms per token,   347.40 tokens per second)
+       eval time =    3109.86 ms /    87 tokens (   35.75 ms per token,    27.98 tokens per second)
+      total time =    3607.85 ms /   260 tokens
+[34m16.51.182.075[0m [32mI [0mslot      release: id  0 | task 26209 | stop processing: n_tokens = 45031, truncated = 0
+[34m16.51.182.097[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.51.350.470[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.51.351.131[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.994 (> 0.100 thold), f_keep = 1.000
+[34m16.51.351.515[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.51.351.555[0m [32mI [0mslot launch_slot_: id  0 | task 26298 | processing task, is_child = 0
+[34m16.51.351.692[0m [35mW slot create_check: id  0 | task 26298 | erasing old context checkpoint (pos_min = 29958, pos_max = 29958, n_tokens = 29959, size = 149.626 MiB)
+[0m[34m16.51.432.791[0m [32mI [0mslot create_check: id  0 | task 26298 | created context checkpoint 32 of 32 (pos_min = 45030, pos_max = 45030, n_tokens = 45031, size = 149.626 MiB)
+[34m16.51.445.245[0m [35mW slot create_check: id  0 | task 26298 | erasing old context checkpoint (pos_min = 30470, pos_max = 30470, n_tokens = 30471, size = 149.626 MiB)
+[0m[34m16.51.846.245[0m [32mI [0mslot create_check: id  0 | task 26298 | created context checkpoint 32 of 32 (pos_min = 45285, pos_max = 45285, n_tokens = 45286, size = 149.626 MiB)
+[34m16.52.437.793[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.54.973.346[0m [32mI [0mslot print_timing: id  0 | task 26298 | 
+prompt eval time =     542.26 ms /   259 tokens (    2.09 ms per token,   477.63 tokens per second)
+       eval time =    3079.52 ms /    86 tokens (   35.81 ms per token,    27.93 tokens per second)
+      total time =    3621.77 ms /   345 tokens
+[34m16.54.974.105[0m [32mI [0mslot      release: id  0 | task 26298 | stop processing: n_tokens = 45375, truncated = 0
+[34m16.54.974.128[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.55.135.430[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.55.136.047[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.995 (> 0.100 thold), f_keep = 1.000
+[34m16.55.136.399[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.55.136.432[0m [32mI [0mslot launch_slot_: id  0 | task 26386 | processing task, is_child = 0
+[34m16.55.136.544[0m [35mW slot create_check: id  0 | task 26386 | erasing old context checkpoint (pos_min = 30556, pos_max = 30556, n_tokens = 30557, size = 149.626 MiB)
+[0m[34m16.55.215.157[0m [32mI [0mslot create_check: id  0 | task 26386 | created context checkpoint 32 of 32 (pos_min = 45374, pos_max = 45374, n_tokens = 45375, size = 149.626 MiB)
+[34m16.55.226.452[0m [35mW slot create_check: id  0 | task 26386 | erasing old context checkpoint (pos_min = 31068, pos_max = 31068, n_tokens = 31069, size = 149.626 MiB)
+[0m[34m16.55.621.227[0m [32mI [0mslot create_check: id  0 | task 26386 | created context checkpoint 32 of 32 (pos_min = 45602, pos_max = 45602, n_tokens = 45603, size = 149.626 MiB)
+[34m16.56.326.997[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m16.58.871.866[0m [32mI [0mslot print_timing: id  0 | task 26386 | 
+prompt eval time =     534.33 ms /   232 tokens (    2.30 ms per token,   434.19 tokens per second)
+       eval time =    3201.09 ms /    89 tokens (   35.97 ms per token,    27.80 tokens per second)
+      total time =    3735.42 ms /   321 tokens
+[34m16.58.872.580[0m [32mI [0mslot      release: id  0 | task 26386 | stop processing: n_tokens = 45695, truncated = 0
+[34m16.58.872.602[0m [32mI [0msrv  update_slots: all slots are idle
+[34m16.59.012.217[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m16.59.012.968[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.992 (> 0.100 thold), f_keep = 1.000
+[34m16.59.013.319[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m16.59.013.350[0m [32mI [0mslot launch_slot_: id  0 | task 26477 | processing task, is_child = 0
+[34m16.59.013.469[0m [35mW slot create_check: id  0 | task 26477 | erasing old context checkpoint (pos_min = 32044, pos_max = 32044, n_tokens = 32045, size = 149.626 MiB)
+[0m[34m16.59.095.659[0m [32mI [0mslot create_check: id  0 | task 26477 | created context checkpoint 32 of 32 (pos_min = 45694, pos_max = 45694, n_tokens = 45695, size = 149.626 MiB)
+[34m16.59.110.000[0m [35mW slot create_check: id  0 | task 26477 | erasing old context checkpoint (pos_min = 32556, pos_max = 32556, n_tokens = 32557, size = 149.626 MiB)
+[0m[34m16.59.661.467[0m [32mI [0mslot create_check: id  0 | task 26477 | created context checkpoint 32 of 32 (pos_min = 46077, pos_max = 46077, n_tokens = 46078, size = 149.626 MiB)
+[34m17.00.295.073[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m17.02.808.452[0m [32mI [0mslot print_timing: id  0 | task 26477 | 
+prompt eval time =     697.75 ms /   387 tokens (    1.80 ms per token,   554.64 tokens per second)
+       eval time =    3097.33 ms /    86 tokens (   36.02 ms per token,    27.77 tokens per second)
+      total time =    3795.09 ms /   473 tokens
+[34m17.02.809.174[0m [32mI [0mslot      release: id  0 | task 26477 | stop processing: n_tokens = 46167, truncated = 0
+[34m17.02.809.196[0m [32mI [0msrv  update_slots: all slots are idle
+[34m17.02.940.548[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m17.02.941.204[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.993 (> 0.100 thold), f_keep = 1.000
+[34m17.02.941.575[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m17.02.941.607[0m [32mI [0mslot launch_slot_: id  0 | task 26565 | processing task, is_child = 0
+[34m17.02.941.787[0m [35mW slot create_check: id  0 | task 26565 | erasing old context checkpoint (pos_min = 33397, pos_max = 33397, n_tokens = 33398, size = 149.626 MiB)
+[0m[34m17.03.023.983[0m [32mI [0mslot create_check: id  0 | task 26565 | created context checkpoint 32 of 32 (pos_min = 46166, pos_max = 46166, n_tokens = 46167, size = 149.626 MiB)
+[34m17.03.037.260[0m [35mW slot create_check: id  0 | task 26565 | erasing old context checkpoint (pos_min = 33909, pos_max = 33909, n_tokens = 33910, size = 149.626 MiB)
+[0m[34m17.03.555.704[0m [32mI [0mslot create_check: id  0 | task 26565 | created context checkpoint 32 of 32 (pos_min = 46497, pos_max = 46497, n_tokens = 46498, size = 149.626 MiB)
+[34m17.04.225.716[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m17.06.761.384[0m [32mI [0mslot print_timing: id  0 | task 26565 | 
+prompt eval time =     663.76 ms /   335 tokens (    1.98 ms per token,   504.70 tokens per second)
+       eval time =    3156.00 ms /    87 tokens (   36.28 ms per token,    27.57 tokens per second)
+      total time =    3819.76 ms /   422 tokens
+[34m17.06.762.169[0m [32mI [0mslot      release: id  0 | task 26565 | stop processing: n_tokens = 46588, truncated = 0
+[34m17.06.762.190[0m [32mI [0msrv  update_slots: all slots are idle
+[34m17.06.929.517[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m17.06.930.186[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 1.000
+[34m17.06.930.553[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m17.06.930.586[0m [32mI [0mslot launch_slot_: id  0 | task 26654 | processing task, is_child = 0
+[34m17.06.930.694[0m [35mW slot create_check: id  0 | task 26654 | erasing old context checkpoint (pos_min = 33995, pos_max = 33995, n_tokens = 33996, size = 149.626 MiB)
+[0m[34m17.07.026.607[0m [32mI [0mslot create_check: id  0 | task 26654 | created context checkpoint 32 of 32 (pos_min = 46587, pos_max = 46587, n_tokens = 46588, size = 149.626 MiB)
+[34m17.08.161.407[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m17.10.680.513[0m [32mI [0mslot print_timing: id  0 | task 26654 | 
+prompt eval time =     241.55 ms /    19 tokens (   12.71 ms per token,    78.66 tokens per second)
+       eval time =    3508.36 ms /    97 tokens (   36.17 ms per token,    27.65 tokens per second)
+      total time =    3749.91 ms /   116 tokens
+[34m17.10.681.250[0m [32mI [0mslot      release: id  0 | task 26654 | stop processing: n_tokens = 46703, truncated = 0
+[34m17.10.681.272[0m [32mI [0msrv  update_slots: all slots are idle
+[34m17.10.815.395[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m17.10.816.053[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.992 (> 0.100 thold), f_keep = 1.000
+[34m17.10.816.424[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m17.10.816.459[0m [32mI [0mslot launch_slot_: id  0 | task 26753 | processing task, is_child = 0
+[34m17.10.816.576[0m [35mW slot create_check: id  0 | task 26753 | erasing old context checkpoint (pos_min = 34507, pos_max = 34507, n_tokens = 34508, size = 149.626 MiB)
+[0m[34m17.10.895.583[0m [32mI [0mslot create_check: id  0 | task 26753 | created context checkpoint 32 of 32 (pos_min = 46702, pos_max = 46702, n_tokens = 46703, size = 149.626 MiB)
+[34m17.10.909.524[0m [35mW slot create_check: id  0 | task 26753 | erasing old context checkpoint (pos_min = 34596, pos_max = 34596, n_tokens = 34597, size = 149.626 MiB)
+[0m[34m17.11.459.504[0m [32mI [0mslot create_check: id  0 | task 26753 | created context checkpoint 32 of 32 (pos_min = 47071, pos_max = 47071, n_tokens = 47072, size = 149.626 MiB)
+[34m17.12.090.570[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m17.14.603.033[0m [32mI [0mslot print_timing: id  0 | task 26753 | 
+prompt eval time =     691.18 ms /   373 tokens (    1.85 ms per token,   539.65 tokens per second)
+       eval time =    3095.38 ms /    86 tokens (   35.99 ms per token,    27.78 tokens per second)
+      total time =    3786.56 ms /   459 tokens
+[34m17.14.603.784[0m [32mI [0mslot      release: id  0 | task 26753 | stop processing: n_tokens = 47161, truncated = 0
+[34m17.14.603.806[0m [32mI [0msrv  update_slots: all slots are idle
+[34m17.14.778.569[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m17.14.779.287[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.993 (> 0.100 thold), f_keep = 1.000
+[34m17.14.779.643[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m17.14.779.675[0m [32mI [0mslot launch_slot_: id  0 | task 26841 | processing task, is_child = 0
+[34m17.14.779.790[0m [35mW slot create_check: id  0 | task 26841 | erasing old context checkpoint (pos_min = 35079, pos_max = 35079, n_tokens = 35080, size = 149.626 MiB)
+[0m[34m17.14.859.952[0m [32mI [0mslot create_check: id  0 | task 26841 | created context checkpoint 32 of 32 (pos_min = 47160, pos_max = 47160, n_tokens = 47161, size = 149.626 MiB)
+[34m17.14.873.223[0m [35mW slot create_check: id  0 | task 26841 | erasing old context checkpoint (pos_min = 40975, pos_max = 40975, n_tokens = 40976, size = 149.626 MiB)
+[0m[34m17.15.389.326[0m [32mI [0mslot create_check: id  0 | task 26841 | created context checkpoint 32 of 32 (pos_min = 47480, pos_max = 47480, n_tokens = 47481, size = 149.626 MiB)
+[34m17.16.095.582[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m17.18.389.225[0m [32mI [0mslot print_timing: id  0 | task 26841 | 
+prompt eval time =     658.88 ms /   324 tokens (    2.03 ms per token,   491.75 tokens per second)
+       eval time =    2950.66 ms /    82 tokens (   35.98 ms per token,    27.79 tokens per second)
+      total time =    3609.53 ms /   406 tokens
+[34m17.18.389.978[0m [32mI [0mslot      release: id  0 | task 26841 | stop processing: n_tokens = 47566, truncated = 0
+[34m17.18.390.003[0m [32mI [0msrv  update_slots: all slots are idle
+[34m17.18.520.249[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m17.18.520.949[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.999 (> 0.100 thold), f_keep = 1.000
+[34m17.18.521.324[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m17.18.521.365[0m [32mI [0mslot launch_slot_: id  0 | task 26925 | processing task, is_child = 0
+[34m17.18.521.509[0m [35mW slot create_check: id  0 | task 26925 | erasing old context checkpoint (pos_min = 41487, pos_max = 41487, n_tokens = 41488, size = 149.626 MiB)
+[0m[34m17.18.600.248[0m [32mI [0mslot create_check: id  0 | task 26925 | created context checkpoint 32 of 32 (pos_min = 47565, pos_max = 47565, n_tokens = 47566, size = 149.626 MiB)
+[34m17.19.457.767[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m17.21.970.722[0m [32mI [0mslot print_timing: id  0 | task 26925 | 
+prompt eval time =     279.42 ms /    56 tokens (    4.99 ms per token,   200.41 tokens per second)
+       eval time =    3169.91 ms /    88 tokens (   36.02 ms per token,    27.76 tokens per second)
+      total time =    3449.34 ms /   144 tokens
+[34m17.21.971.461[0m [32mI [0mslot      release: id  0 | task 26925 | stop processing: n_tokens = 47709, truncated = 0
+[34m17.21.971.483[0m [32mI [0msrv  update_slots: all slots are idle
+[34m17.22.145.783[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m17.22.146.451[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.995 (> 0.100 thold), f_keep = 1.000
+[34m17.22.146.843[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m17.22.146.877[0m [32mI [0mslot launch_slot_: id  0 | task 27015 | processing task, is_child = 0
+[34m17.22.146.995[0m [35mW slot create_check: id  0 | task 27015 | erasing old context checkpoint (pos_min = 41575, pos_max = 41575, n_tokens = 41576, size = 149.626 MiB)
+[0m[34m17.22.223.684[0m [32mI [0mslot create_check: id  0 | task 27015 | created context checkpoint 32 of 32 (pos_min = 47708, pos_max = 47708, n_tokens = 47709, size = 149.626 MiB)
+[34m17.22.237.136[0m [35mW slot create_check: id  0 | task 27015 | erasing old context checkpoint (pos_min = 41777, pos_max = 41777, n_tokens = 41778, size = 149.626 MiB)
+[0m[34m17.22.646.918[0m [32mI [0mslot create_check: id  0 | task 27015 | created context checkpoint 32 of 32 (pos_min = 47964, pos_max = 47964, n_tokens = 47965, size = 149.626 MiB)
+[34m17.23.246.431[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m17.25.734.718[0m [32mI [0mslot print_timing: id  0 | task 27015 | 
+prompt eval time =     549.87 ms /   260 tokens (    2.11 ms per token,   472.84 tokens per second)
+       eval time =    3037.96 ms /    84 tokens (   36.17 ms per token,    27.65 tokens per second)
+      total time =    3587.83 ms /   344 tokens
+[34m17.25.735.463[0m [32mI [0mslot      release: id  0 | task 27015 | stop processing: n_tokens = 48052, truncated = 0
+[34m17.25.735.484[0m [32mI [0msrv  update_slots: all slots are idle
+[34m17.25.868.196[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m17.25.868.809[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.996 (> 0.100 thold), f_keep = 1.000
+[34m17.25.869.171[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m17.25.869.203[0m [32mI [0mslot launch_slot_: id  0 | task 27101 | processing task, is_child = 0
+[34m17.25.869.315[0m [35mW slot create_check: id  0 | task 27101 | erasing old context checkpoint (pos_min = 41867, pos_max = 41867, n_tokens = 41868, size = 149.626 MiB)
+[0m[34m17.25.947.343[0m [32mI [0mslot create_check: id  0 | task 27101 | created context checkpoint 32 of 32 (pos_min = 48051, pos_max = 48051, n_tokens = 48052, size = 149.626 MiB)
+[34m17.25.958.072[0m [35mW slot create_check: id  0 | task 27101 | erasing old context checkpoint (pos_min = 42087, pos_max = 42087, n_tokens = 42088, size = 149.626 MiB)
+[0m[34m17.26.330.978[0m [32mI [0mslot create_check: id  0 | task 27101 | created context checkpoint 32 of 32 (pos_min = 48233, pos_max = 48233, n_tokens = 48234, size = 149.626 MiB)
+[34m17.26.893.273[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m17.29.418.060[0m [32mI [0mslot print_timing: id  0 | task 27101 | 
+prompt eval time =     511.09 ms /   186 tokens (    2.75 ms per token,   363.93 tokens per second)
+       eval time =    3037.75 ms /    84 tokens (   36.16 ms per token,    27.65 tokens per second)
+      total time =    3548.84 ms /   270 tokens
+[34m17.29.418.839[0m [32mI [0mslot      release: id  0 | task 27101 | stop processing: n_tokens = 48321, truncated = 0
+[34m17.29.418.861[0m [32mI [0msrv  update_slots: all slots are idle
+[34m17.29.601.789[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m17.29.602.424[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.994 (> 0.100 thold), f_keep = 1.000
+[34m17.29.602.780[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m17.29.602.811[0m [32mI [0mslot launch_slot_: id  0 | task 27187 | processing task, is_child = 0
+[34m17.29.602.929[0m [35mW slot create_check: id  0 | task 27187 | erasing old context checkpoint (pos_min = 42185, pos_max = 42185, n_tokens = 42186, size = 149.626 MiB)
+[0m[34m17.29.681.165[0m [32mI [0mslot create_check: id  0 | task 27187 | created context checkpoint 32 of 32 (pos_min = 48320, pos_max = 48320, n_tokens = 48321, size = 149.626 MiB)
+[34m17.29.693.523[0m [35mW slot create_check: id  0 | task 27187 | erasing old context checkpoint (pos_min = 42357, pos_max = 42357, n_tokens = 42358, size = 149.626 MiB)
+[0m[34m17.30.190.634[0m [32mI [0mslot create_check: id  0 | task 27187 | created context checkpoint 32 of 32 (pos_min = 48603, pos_max = 48603, n_tokens = 48604, size = 149.626 MiB)
+[34m17.30.828.899[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m17.33.869.783[0m [32mI [0mslot print_timing: id  0 | task 27187 | n_decoded =    100, tg =  27.56 t/s
+[34m17.34.089.902[0m [32mI [0mslot print_timing: id  0 | task 27187 | 
+prompt eval time =     638.05 ms /   287 tokens (    2.22 ms per token,   449.81 tokens per second)
+       eval time =    3849.03 ms /   106 tokens (   36.31 ms per token,    27.54 tokens per second)
+      total time =    4487.08 ms /   393 tokens
+[34m17.34.090.630[0m [32mI [0mslot      release: id  0 | task 27187 | stop processing: n_tokens = 48713, truncated = 0
+[34m17.34.090.651[0m [32mI [0msrv  update_slots: all slots are idle
+[34m17.34.237.428[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m17.34.238.028[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.999 (> 0.100 thold), f_keep = 1.000
+[34m17.34.238.367[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m17.34.238.399[0m [32mI [0mslot launch_slot_: id  0 | task 27295 | processing task, is_child = 0
+[34m17.34.238.508[0m [35mW slot create_check: id  0 | task 27295 | erasing old context checkpoint (pos_min = 42462, pos_max = 42462, n_tokens = 42463, size = 149.626 MiB)
+[0m[34m17.34.320.080[0m [32mI [0mslot create_check: id  0 | task 27295 | created context checkpoint 32 of 32 (pos_min = 48712, pos_max = 48712, n_tokens = 48713, size = 149.626 MiB)
+[34m17.38.154.615[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =    100, tg =  27.54 t/s
+[34m17.41.163.681[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =    182, tg =  27.41 t/s
+[34m17.44.171.513[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =    264, tg =  27.36 t/s
+[34m17.45.859.526[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m17.47.179.436[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =    346, tg =  27.34 t/s
+[34m17.50.188.799[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =    428, tg =  27.32 t/s
+[34m17.53.197.408[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =    510, tg =  27.31 t/s
+[34m17.56.209.820[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =    592, tg =  27.30 t/s
+[34m17.59.215.932[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =    674, tg =  27.30 t/s
+[34m18.02.216.807[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =    756, tg =  27.30 t/s
+[34m18.05.219.691[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =    838, tg =  27.30 t/s
+[34m18.08.233.580[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =    920, tg =  27.29 t/s
+[34m18.11.247.920[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1002, tg =  27.28 t/s
+[34m18.14.263.249[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1084, tg =  27.28 t/s
+[34m18.17.283.371[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1166, tg =  27.27 t/s
+[34m18.20.299.800[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1248, tg =  27.26 t/s
+[34m18.23.320.132[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1330, tg =  27.26 t/s
+[34m18.26.340.607[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1412, tg =  27.25 t/s
+[34m18.29.359.459[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1494, tg =  27.24 t/s
+[34m18.32.377.697[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1576, tg =  27.24 t/s
+[34m18.35.396.846[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1658, tg =  27.24 t/s
+[34m18.38.410.788[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1740, tg =  27.24 t/s
+[34m18.41.423.319[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1822, tg =  27.23 t/s
+[34m18.44.435.753[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1904, tg =  27.23 t/s
+[34m18.47.451.525[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   1986, tg =  27.23 t/s
+[34m18.50.466.645[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   2068, tg =  27.23 t/s
+[34m18.53.481.350[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   2150, tg =  27.23 t/s
+[34m18.56.498.871[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   2232, tg =  27.23 t/s
+[34m18.59.515.102[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   2314, tg =  27.23 t/s
+[34m19.02.531.218[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   2396, tg =  27.22 t/s
+[34m19.05.558.520[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   2478, tg =  27.22 t/s
+[34m19.08.582.054[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   2560, tg =  27.22 t/s
+[34m19.11.609.358[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   2642, tg =  27.21 t/s
+[34m19.14.632.040[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   2724, tg =  27.21 t/s
+[34m19.17.653.842[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   2806, tg =  27.21 t/s
+[34m19.20.680.958[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   2888, tg =  27.20 t/s
+[34m19.23.712.680[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   2970, tg =  27.20 t/s
+[34m19.26.749.517[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   3052, tg =  27.20 t/s
+[34m19.29.786.007[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   3134, tg =  27.19 t/s
+[34m19.32.816.064[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   3216, tg =  27.19 t/s
+[34m19.35.819.219[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   3297, tg =  27.18 t/s
+[34m19.38.823.564[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   3378, tg =  27.18 t/s
+[34m19.41.855.792[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   3460, tg =  27.17 t/s
+[34m19.44.884.961[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   3542, tg =  27.17 t/s
+[34m19.47.920.227[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   3624, tg =  27.17 t/s
+[34m19.50.929.352[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   3705, tg =  27.16 t/s
+[34m19.53.940.151[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   3786, tg =  27.16 t/s
+[34m19.56.942.548[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   3867, tg =  27.15 t/s
+[34m19.59.952.803[0m [32mI [0mslot print_timing: id  0 | task 27295 | n_decoded =   3948, tg =  27.15 t/s
+[34m20.00.287.101[0m [32mI [0mslot print_timing: id  0 | task 27295 | 
+prompt eval time =     284.98 ms /    57 tokens (    5.00 ms per token,   200.02 tokens per second)
+       eval time =  145763.71 ms /  3957 tokens (   36.84 ms per token,    27.15 tokens per second)
+      total time =  146048.69 ms /  4014 tokens
+[34m20.00.288.045[0m [32mI [0mslot      release: id  0 | task 27295 | stop processing: n_tokens = 52726, truncated = 0
+[34m20.00.288.082[0m [32mI [0msrv  update_slots: all slots are idle
+[34m20.00.506.475[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m20.00.508.640[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = 1133878805158
+[34m20.00.508.642[0m [32mI [0msrv  get_availabl: updating prompt cache
+[34m20.00.509.373[0m [35mW srv   prompt_save:  - saving prompt with length 52726, total state size = 3446.007 MiB (draft: 0.000 MiB)
+[0m[34m20.03.482.491[0m [32mI [0msrv          load:  - looking for better prompt, base f_keep = 0.028, sim = 0.045
+[34m20.03.482.521[0m [32mI [0msrv          load:  - found better prompt with f_keep = 1.000, sim = 0.886
+[34m20.04.139.531[0m [35mW srv        update:  - cache size limit reached, removing oldest entry (size = 511.523 MiB)
+[0m[34m20.04.152.047[0m [32mI [0msrv        update:  - cache state: 1 prompts, 8234.043 MiB (limits: 8192.000 MiB, 207872 tokens, 207872 est)
+[34m20.04.152.050[0m [32mI [0msrv        update:    - prompt 0x79a9e835a660:   52726 tokens, checkpoints: 32,  8234.043 MiB
+[34m20.04.152.052[0m [32mI [0msrv  get_availabl: prompt cache update took 3643.41 ms
+[34m20.04.152.573[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m20.04.152.612[0m [32mI [0mslot launch_slot_: id  0 | task 31254 | processing task, is_child = 0
+[34m20.07.872.307[0m [32mI [0mslot print_timing: id  0 | task 31254 | prompt processing, n_tokens =   3192, progress = 0.98, t =   3.72 s / 858.14 tokens per second
+[34m20.08.086.085[0m [32mI [0mslot create_check: id  0 | task 31254 | created context checkpoint 11 of 32 (pos_min = 31879, pos_max = 31879, n_tokens = 31880, size = 149.626 MiB)
+[34m20.08.097.572[0m [32mI [0mslot print_timing: id  0 | task 31254 | prompt processing, n_tokens =   3704, progress = 1.00, t =   3.94 s / 938.92 tokens per second
+[34m20.08.746.341[0m [32mI [0mslot create_check: id  0 | task 31254 | created context checkpoint 12 of 32 (pos_min = 32391, pos_max = 32391, n_tokens = 32392, size = 149.626 MiB)
+[34m20.08.934.665[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m20.12.256.420[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =    100, tg =  28.88 t/s
+[34m20.15.259.621[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =    186, tg =  28.77 t/s
+[34m20.18.267.577[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =    272, tg =  28.71 t/s
+[34m20.21.276.643[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =    358, tg =  28.68 t/s
+[34m20.24.295.089[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =    444, tg =  28.64 t/s
+[34m20.27.302.697[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =    530, tg =  28.64 t/s
+[34m20.30.318.637[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =    616, tg =  28.62 t/s
+[34m20.33.340.594[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =    702, tg =  28.60 t/s
+[34m20.36.361.973[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =    788, tg =  28.58 t/s
+[34m20.39.381.346[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =    874, tg =  28.57 t/s
+[34m20.42.397.239[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =    960, tg =  28.57 t/s
+[34m20.45.410.329[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   1046, tg =  28.57 t/s
+[34m20.48.425.230[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   1132, tg =  28.56 t/s
+[34m20.51.440.058[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   1218, tg =  28.56 t/s
+[34m20.54.456.586[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   1304, tg =  28.56 t/s
+[34m20.57.479.510[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   1390, tg =  28.55 t/s
+[34m21.00.514.153[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   1476, tg =  28.54 t/s
+[34m21.03.541.447[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   1562, tg =  28.53 t/s
+[34m21.06.573.222[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   1648, tg =  28.52 t/s
+[34m21.09.605.380[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   1734, tg =  28.51 t/s
+[34m21.12.626.728[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   1820, tg =  28.51 t/s
+[34m21.15.646.524[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   1906, tg =  28.51 t/s
+[34m21.18.667.215[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   1992, tg =  28.51 t/s
+[34m21.21.688.285[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   2078, tg =  28.51 t/s
+[34m21.24.711.945[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   2164, tg =  28.50 t/s
+[34m21.27.736.854[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   2250, tg =  28.50 t/s
+[34m21.30.762.101[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   2336, tg =  28.50 t/s
+[34m21.33.796.715[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   2422, tg =  28.49 t/s
+[34m21.36.799.255[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   2507, tg =  28.49 t/s
+[34m21.39.800.046[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   2592, tg =  28.48 t/s
+[34m21.42.836.568[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   2678, tg =  28.48 t/s
+[34m21.45.837.815[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   2763, tg =  28.47 t/s
+[34m21.48.838.993[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   2848, tg =  28.47 t/s
+[34m21.51.843.698[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   2933, tg =  28.46 t/s
+[34m21.54.846.147[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   3018, tg =  28.46 t/s
+[34m21.57.874.722[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   3104, tg =  28.46 t/s
+[34m22.00.905.839[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   3190, tg =  28.45 t/s
+[34m22.03.909.150[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   3275, tg =  28.45 t/s
+[34m22.06.917.434[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   3360, tg =  28.44 t/s
+[34m22.09.918.906[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   3445, tg =  28.44 t/s
+[34m22.12.928.052[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   3530, tg =  28.44 t/s
+[34m22.15.938.009[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   3615, tg =  28.43 t/s
+[34m22.18.948.277[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   3700, tg =  28.43 t/s
+[34m22.21.959.201[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   3785, tg =  28.42 t/s
+[34m22.24.964.567[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   3870, tg =  28.42 t/s
+[34m22.27.977.186[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   3955, tg =  28.42 t/s
+[34m22.30.991.971[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   4040, tg =  28.41 t/s
+[34m22.34.001.528[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   4125, tg =  28.41 t/s
+[34m22.37.006.039[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   4210, tg =  28.41 t/s
+[34m22.40.022.794[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   4295, tg =  28.40 t/s
+[34m22.43.040.909[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   4380, tg =  28.40 t/s
+[34m22.46.057.720[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   4465, tg =  28.39 t/s
+[34m22.49.076.261[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   4550, tg =  28.39 t/s
+[34m22.52.096.552[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   4635, tg =  28.38 t/s
+[34m22.55.108.997[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   4720, tg =  28.38 t/s
+[34m22.58.120.032[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   4805, tg =  28.38 t/s
+[34m23.01.134.596[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   4890, tg =  28.37 t/s
+[34m23.04.153.351[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   4975, tg =  28.37 t/s
+[34m23.07.173.963[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   5060, tg =  28.37 t/s
+[34m23.10.194.649[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   5145, tg =  28.36 t/s
+[34m23.13.214.436[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   5230, tg =  28.36 t/s
+[34m23.16.236.230[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   5315, tg =  28.36 t/s
+[34m23.19.259.054[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   5400, tg =  28.35 t/s
+[34m23.22.280.413[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   5485, tg =  28.35 t/s
+[34m23.25.301.565[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   5570, tg =  28.34 t/s
+[34m23.28.321.278[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   5655, tg =  28.34 t/s
+[34m23.31.347.466[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   5740, tg =  28.34 t/s
+[34m23.34.367.922[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   5825, tg =  28.34 t/s
+[34m23.37.386.786[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   5910, tg =  28.33 t/s
+[34m23.40.411.031[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   5995, tg =  28.33 t/s
+[34m23.43.434.797[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   6080, tg =  28.33 t/s
+[34m23.46.454.941[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   6165, tg =  28.32 t/s
+[34m23.49.485.450[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   6250, tg =  28.32 t/s
+[34m23.52.517.877[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   6335, tg =  28.32 t/s
+[34m23.55.553.506[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   6420, tg =  28.31 t/s
+[34m23.58.583.848[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   6505, tg =  28.31 t/s
+[34m24.01.618.626[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   6590, tg =  28.30 t/s
+[34m24.04.652.174[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   6675, tg =  28.30 t/s
+[34m24.07.653.512[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   6759, tg =  28.30 t/s
+[34m24.10.685.485[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   6844, tg =  28.29 t/s
+[34m24.13.713.040[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   6929, tg =  28.29 t/s
+[34m24.16.741.780[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   7014, tg =  28.29 t/s
+[34m24.19.742.465[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   7098, tg =  28.28 t/s
+[34m24.22.745.002[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   7182, tg =  28.28 t/s
+[34m24.25.748.331[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   7266, tg =  28.28 t/s
+[34m24.28.753.468[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   7350, tg =  28.27 t/s
+[34m24.31.757.470[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   7434, tg =  28.27 t/s
+[34m24.34.765.210[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   7518, tg =  28.27 t/s
+[34m24.37.777.986[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   7602, tg =  28.26 t/s
+[34m24.40.788.574[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   7686, tg =  28.26 t/s
+[34m24.43.800.175[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   7770, tg =  28.25 t/s
+[34m24.46.808.926[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   7854, tg =  28.25 t/s
+[34m24.49.815.158[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   7938, tg =  28.25 t/s
+[34m24.52.823.356[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   8022, tg =  28.24 t/s
+[34m24.55.832.002[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   8106, tg =  28.24 t/s
+[34m24.58.834.969[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   8190, tg =  28.24 t/s
+[34m25.01.837.824[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   8274, tg =  28.23 t/s
+[34m25.04.843.605[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   8358, tg =  28.23 t/s
+[34m25.07.855.632[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   8442, tg =  28.23 t/s
+[34m25.10.862.217[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   8526, tg =  28.23 t/s
+[34m25.13.871.416[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   8610, tg =  28.22 t/s
+[34m25.16.881.803[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   8694, tg =  28.22 t/s
+[34m25.19.901.028[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   8778, tg =  28.22 t/s
+[34m25.22.926.638[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   8862, tg =  28.21 t/s
+[34m25.25.950.540[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   8946, tg =  28.21 t/s
+[34m25.28.962.935[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   9030, tg =  28.20 t/s
+[34m25.31.976.551[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   9114, tg =  28.20 t/s
+[34m25.34.992.868[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   9198, tg =  28.20 t/s
+[34m25.38.015.866[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   9282, tg =  28.19 t/s
+[34m25.41.041.824[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   9366, tg =  28.19 t/s
+[34m25.44.056.799[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   9450, tg =  28.19 t/s
+[34m25.47.075.493[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   9534, tg =  28.18 t/s
+[34m25.50.102.317[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   9618, tg =  28.18 t/s
+[34m25.53.123.973[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   9702, tg =  28.18 t/s
+[34m25.56.149.422[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   9786, tg =  28.17 t/s
+[34m25.59.175.458[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   9870, tg =  28.17 t/s
+[34m26.02.176.221[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =   9953, tg =  28.16 t/s
+[34m26.05.176.311[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  10036, tg =  28.16 t/s
+[34m26.08.176.473[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  10119, tg =  28.16 t/s
+[34m26.11.207.398[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  10203, tg =  28.15 t/s
+[34m26.14.232.004[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  10287, tg =  28.15 t/s
+[34m26.17.256.917[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  10371, tg =  28.15 t/s
+[34m26.20.280.559[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  10455, tg =  28.14 t/s
+[34m26.23.311.409[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  10539, tg =  28.14 t/s
+[34m26.26.312.696[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  10622, tg =  28.14 t/s
+[34m26.29.344.872[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  10706, tg =  28.13 t/s
+[34m26.32.378.575[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  10790, tg =  28.13 t/s
+[34m26.35.379.337[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  10873, tg =  28.13 t/s
+[34m26.38.409.358[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  10957, tg =  28.12 t/s
+[34m26.41.437.459[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  11041, tg =  28.12 t/s
+[34m26.44.465.215[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  11125, tg =  28.12 t/s
+[34m26.47.494.026[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  11209, tg =  28.11 t/s
+[34m26.50.524.627[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  11293, tg =  28.11 t/s
+[34m26.53.531.241[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  11376, tg =  28.11 t/s
+[34m26.56.534.711[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  11459, tg =  28.10 t/s
+[34m26.59.565.700[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  11543, tg =  28.10 t/s
+[34m27.02.598.545[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  11627, tg =  28.10 t/s
+[34m27.05.632.870[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  11711, tg =  28.09 t/s
+[34m27.08.666.634[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  11795, tg =  28.09 t/s
+[34m27.11.670.858[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  11878, tg =  28.09 t/s
+[34m27.14.675.339[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  11961, tg =  28.09 t/s
+[34m27.17.678.545[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  12044, tg =  28.08 t/s
+[34m27.20.689.443[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  12127, tg =  28.08 t/s
+[34m27.23.706.944[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  12210, tg =  28.07 t/s
+[34m27.26.717.183[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  12293, tg =  28.07 t/s
+[34m27.29.720.209[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  12376, tg =  28.07 t/s
+[34m27.32.722.243[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  12459, tg =  28.07 t/s
+[34m27.35.724.568[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  12542, tg =  28.06 t/s
+[34m27.38.728.668[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  12625, tg =  28.06 t/s
+[34m27.41.732.999[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  12708, tg =  28.06 t/s
+[34m27.44.737.204[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  12791, tg =  28.05 t/s
+[34m27.47.741.801[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  12874, tg =  28.05 t/s
+[34m27.50.759.317[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  12957, tg =  28.05 t/s
+[34m27.53.775.970[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  13040, tg =  28.04 t/s
+[34m27.56.795.108[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  13123, tg =  28.04 t/s
+[34m27.59.813.354[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  13206, tg =  28.04 t/s
+[34m28.02.831.818[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  13289, tg =  28.03 t/s
+[34m28.05.852.936[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  13372, tg =  28.03 t/s
+[34m28.08.873.761[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  13455, tg =  28.03 t/s
+[34m28.11.888.621[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  13538, tg =  28.02 t/s
+[34m28.14.901.156[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  13621, tg =  28.02 t/s
+[34m28.17.914.229[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  13704, tg =  28.02 t/s
+[34m28.20.934.038[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  13787, tg =  28.01 t/s
+[34m28.23.959.203[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  13870, tg =  28.01 t/s
+[34m28.26.978.754[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  13953, tg =  28.01 t/s
+[34m28.29.999.709[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  14036, tg =  28.00 t/s
+[34m28.33.020.569[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  14119, tg =  28.00 t/s
+[34m28.36.040.764[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  14202, tg =  28.00 t/s
+[34m28.39.058.071[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  14285, tg =  28.00 t/s
+[34m28.42.077.505[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  14368, tg =  27.99 t/s
+[34m28.45.099.779[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  14451, tg =  27.99 t/s
+[34m28.48.131.598[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  14534, tg =  27.99 t/s
+[34m28.51.156.012[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  14617, tg =  27.98 t/s
+[34m28.54.184.501[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  14700, tg =  27.98 t/s
+[34m28.57.218.058[0m [32mI [0mslot print_timing: id  0 | task 31254 | n_decoded =  14783, tg =  27.98 t/s
+[34m28.59.298.162[0m [32mI [0mslot print_timing: id  0 | task 31254 | 
+prompt eval time =    4641.29 ms /  3708 tokens (    1.25 ms per token,   798.92 tokens per second)
+       eval time =  530504.24 ms / 14840 tokens (   35.75 ms per token,    27.97 tokens per second)
+      total time =  535145.53 ms / 18548 tokens
+[34m28.59.299.005[0m [32mI [0mslot      release: id  0 | task 31254 | stop processing: n_tokens = 47235, truncated = 0
+[34m28.59.299.069[0m [32mI [0msrv  update_slots: all slots are idle
+[34m28.59.460.660[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m28.59.462.811[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 1.000
+[34m28.59.463.383[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m28.59.463.429[0m [32mI [0mslot launch_slot_: id  0 | task 46098 | processing task, is_child = 0
+[34m28.59.532.484[0m [32mI [0mslot create_check: id  0 | task 46098 | created context checkpoint 13 of 32 (pos_min = 47234, pos_max = 47234, n_tokens = 47235, size = 149.626 MiB)
+[34m28.59.874.114[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m29.02.940.885[0m [32mI [0mslot print_timing: id  0 | task 46098 | 
+prompt eval time =     227.03 ms /    21 tokens (   10.81 ms per token,    92.50 tokens per second)
+       eval time =    3250.41 ms /    90 tokens (   36.12 ms per token,    27.69 tokens per second)
+      total time =    3477.44 ms /   111 tokens
+[34m29.02.941.950[0m [32mI [0mslot      release: id  0 | task 46098 | stop processing: n_tokens = 47345, truncated = 0
+[34m29.02.942.014[0m [32mI [0msrv  update_slots: all slots are idle
+[34m29.03.273.025[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m29.03.275.240[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 1.000
+[34m29.03.275.816[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m29.03.275.859[0m [32mI [0mslot launch_slot_: id  0 | task 46190 | processing task, is_child = 0
+[34m29.03.345.675[0m [32mI [0mslot create_check: id  0 | task 46190 | created context checkpoint 14 of 32 (pos_min = 47344, pos_max = 47344, n_tokens = 47345, size = 149.626 MiB)
+[34m29.03.673.788[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m29.07.108.654[0m [32mI [0mslot print_timing: id  0 | task 46190 | n_decoded =    100, tg =  27.63 t/s
+[34m29.07.948.886[0m [32mI [0mslot print_timing: id  0 | task 46190 | 
+prompt eval time =     213.31 ms /    17 tokens (   12.55 ms per token,    79.69 tokens per second)
+       eval time =    4459.70 ms /   123 tokens (   36.26 ms per token,    27.58 tokens per second)
+      total time =    4673.01 ms /   140 tokens
+[34m29.07.949.982[0m [32mI [0mslot      release: id  0 | task 46190 | stop processing: n_tokens = 47484, truncated = 0
+[34m29.07.950.047[0m [32mI [0msrv  update_slots: all slots are idle
+[34m29.08.685.988[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m29.08.688.075[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.999 (> 0.100 thold), f_keep = 1.000
+[34m29.08.688.790[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m29.08.688.845[0m [32mI [0mslot launch_slot_: id  0 | task 46315 | processing task, is_child = 0
+[34m29.08.766.542[0m [32mI [0mslot create_check: id  0 | task 46315 | created context checkpoint 15 of 32 (pos_min = 47483, pos_max = 47483, n_tokens = 47484, size = 149.626 MiB)
+[34m29.08.991.640[0m [32mI [0mslot create_check: id  0 | task 46315 | created context checkpoint 16 of 32 (pos_min = 47549, pos_max = 47549, n_tokens = 47550, size = 149.626 MiB)
+[34m29.09.225.867[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m29.12.659.550[0m [32mI [0mslot print_timing: id  0 | task 46315 | n_decoded =    100, tg =  27.64 t/s
+[34m29.15.695.084[0m [32mI [0mslot print_timing: id  0 | task 46315 | n_decoded =    183, tg =  27.51 t/s
+[34m29.18.722.734[0m [32mI [0mslot print_timing: id  0 | task 46315 | n_decoded =    266, tg =  27.48 t/s
+[34m29.21.749.454[0m [32mI [0mslot print_timing: id  0 | task 46315 | n_decoded =    349, tg =  27.46 t/s
+[34m29.24.776.614[0m [32mI [0mslot print_timing: id  0 | task 46315 | n_decoded =    432, tg =  27.46 t/s
+[34m29.27.806.297[0m [32mI [0mslot print_timing: id  0 | task 46315 | n_decoded =    515, tg =  27.45 t/s
+[34m29.28.280.700[0m [32mI [0mslot print_timing: id  0 | task 46315 | 
+prompt eval time =     353.13 ms /    70 tokens (    5.04 ms per token,   198.23 tokens per second)
+       eval time =   19238.70 ms /   528 tokens (   36.44 ms per token,    27.44 tokens per second)
+      total time =   19591.83 ms /   598 tokens
+[34m29.28.281.638[0m [32mI [0mslot      release: id  0 | task 46315 | stop processing: n_tokens = 48081, truncated = 0
+[34m29.28.281.714[0m [32mI [0msrv  update_slots: all slots are idle
+[34m29.28.764.305[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m29.28.766.534[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.998 (> 0.100 thold), f_keep = 1.000
+[34m29.28.767.078[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m29.28.767.128[0m [32mI [0mslot launch_slot_: id  0 | task 46845 | processing task, is_child = 0
+[34m29.28.845.378[0m [32mI [0mslot create_check: id  0 | task 46845 | created context checkpoint 17 of 32 (pos_min = 48080, pos_max = 48080, n_tokens = 48081, size = 149.626 MiB)
+[34m29.29.070.171[0m [32mI [0mslot create_check: id  0 | task 46845 | created context checkpoint 18 of 32 (pos_min = 48158, pos_max = 48158, n_tokens = 48159, size = 149.626 MiB)
+[34m29.29.231.167[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m29.32.736.237[0m [32mI [0mslot print_timing: id  0 | task 46845 | n_decoded =    100, tg =  27.66 t/s
+[34m29.35.583.293[0m [32mI [0mslot print_timing: id  0 | task 46845 | 
+prompt eval time =     353.47 ms /    82 tokens (    4.31 ms per token,   231.99 tokens per second)
+       eval time =    6462.68 ms /   178 tokens (   36.31 ms per token,    27.54 tokens per second)
+      total time =    6816.15 ms /   260 tokens
+[34m29.35.584.279[0m [32mI [0mslot      release: id  0 | task 46845 | stop processing: n_tokens = 48340, truncated = 0
+[34m29.35.584.343[0m [32mI [0msrv  update_slots: all slots are idle
+[34m29.35.721.345[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m29.35.723.530[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.995 (> 0.100 thold), f_keep = 1.000
+[34m29.35.724.077[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m29.35.724.126[0m [32mI [0mslot launch_slot_: id  0 | task 47025 | processing task, is_child = 0
+[34m29.35.798.303[0m [32mI [0mslot create_check: id  0 | task 47025 | created context checkpoint 19 of 32 (pos_min = 48339, pos_max = 48339, n_tokens = 48340, size = 149.626 MiB)
+[34m29.36.205.533[0m [32mI [0mslot create_check: id  0 | task 47025 | created context checkpoint 20 of 32 (pos_min = 48558, pos_max = 48558, n_tokens = 48559, size = 149.626 MiB)
+[34m29.36.476.361[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m29.39.884.753[0m [32mI [0mslot print_timing: id  0 | task 47025 | n_decoded =    100, tg =  27.55 t/s
+[34m29.42.894.956[0m [32mI [0mslot print_timing: id  0 | task 47025 | n_decoded =    182, tg =  27.41 t/s
+[34m29.45.928.247[0m [32mI [0mslot print_timing: id  0 | task 47025 | n_decoded =    265, tg =  27.40 t/s
+[34m29.48.962.633[0m [32mI [0mslot print_timing: id  0 | task 47025 | n_decoded =    348, tg =  27.39 t/s
+[34m29.51.997.804[0m [32mI [0mslot print_timing: id  0 | task 47025 | n_decoded =    431, tg =  27.38 t/s
+[34m29.53.497.931[0m [32mI [0mslot print_timing: id  0 | task 47025 | 
+prompt eval time =     531.43 ms /   223 tokens (    2.38 ms per token,   419.62 tokens per second)
+       eval time =   17242.36 ms /   472 tokens (   36.53 ms per token,    27.37 tokens per second)
+      total time =   17773.79 ms /   695 tokens
+[34m29.53.498.877[0m [32mI [0mslot      release: id  0 | task 47025 | stop processing: n_tokens = 49034, truncated = 0
+[34m29.53.498.945[0m [32mI [0msrv  update_slots: all slots are idle
+[34m30.30.734.908[0m [32mI [0msrv    operator(): operator(): cleaning up before exit...
