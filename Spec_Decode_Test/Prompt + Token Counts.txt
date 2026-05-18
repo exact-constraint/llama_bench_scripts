@@ -1,0 +1,11 @@
+Prompt:
+
+You are an expert Python Developer. Create a highly accurate flappybird game clone called flippyblock extreme in python. Add all additional features that would be expected in a common user interface. Do not use external assets for anything. If you need assets created, generate them in the code only. Only use pygame. Fully review your code and correct any issues after you produce the first version. 
+
+Context size reported by OpenCode when the agent had finished the task:
+
+MTP Final Context Size: 81,597
+
+Ngram-Mod Final Context Size: 69,331
+
+No Spec Decoding Context Size: 49,035
