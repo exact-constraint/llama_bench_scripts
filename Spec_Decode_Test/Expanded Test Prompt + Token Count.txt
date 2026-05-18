@@ -1,0 +1,8 @@
+Good. Now: Analyze the codebase you just built, and output a summary report of how it functions as a .md file. Afterwards, create a plan file to port the codebase to html/css/js. Finally, follow your plan, placing the new files in a directory called 'html_port'. 
+
+Your deliverables:
+
+1x summary report of the python codebase.
+1x python -> html port plan
+1x directory containing the ported game code.
+
