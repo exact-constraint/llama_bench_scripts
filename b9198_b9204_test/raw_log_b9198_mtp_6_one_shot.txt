@@ -1,0 +1,446 @@
+[34m0.00.040.498[0m [32mI [0mlog_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+[34m0.00.040.499[0m [32mI [0mdevice_info:
+[34m0.00.040.597[0m [32mI [0m  - Vulkan0 : AMD Radeon AI PRO R9700 (RADV GFX1201) (32624 MiB, 31182 MiB free)
+[34m0.00.040.602[0m [32mI [0m  - CPU     : Intel(R) Core(TM) Ultra 5 225F (31300 MiB, 31300 MiB free)
+[34m0.00.040.644[0m [32mI [0msystem_info: n_threads = 10 (n_threads_batch = 10) / 10 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX_VNNI = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+[34m0.00.040.650[0m [32mI [0msrv          init: running without SSL
+[34m0.00.040.664[0m [32mI [0msrv          init: using 9 threads for HTTP server
+[34m0.00.040.724[0m [32mI [0msrv         start: binding port with default address family
+[34m0.00.041.843[0m [32mI [0msrv          main: loading model
+[34m0.00.041.853[0m [32mI [0msrv    load_model: loading model '/home/clarence/Downloads/Qwen3.6-27B-UD-Q4_K_XL_MTP.gguf'
+[34m0.00.041.885[0m [32mI [0mcommon_init_result: fitting params to device memory ...
+[34m0.00.041.887[0m [32mI [0mcommon_init_result: (for bugs during this step try to reproduce them with -fit off, or provide --verbose logs if the bug only occurs with -fit on)
+[34m0.03.669.357[0m [35mW llama_context: n_ctx_seq (175104) < n_ctx_train (262144) -- the full capacity of the model will not be utilized
+[0m[34m0.03.746.389[0m [35mW common_init_from_params: warming up the model with an empty run - please wait ... (--no-warmup to disable)
+[0m[34m0.03.823.780[0m [32mI [0msrv    load_model: creating MTP draft context against the target model '/home/clarence/Downloads/Qwen3.6-27B-UD-Q4_K_XL_MTP.gguf'
+[34m0.03.892.119[0m [35mW load_hparams: Qwen-VL models require at minimum 1024 image tokens to function correctly on grounding tasks
+[0m[34m0.03.892.122[0m [35mW load_hparams: if you encounter problems with accuracy, try adding --image-min-tokens 1024
+[0m[34m0.03.892.122[0m [35mW load_hparams: more info: https://github.com/ggml-org/llama.cpp/issues/16842
+
+[0m[34m0.04.257.797[0m [32mI [0msrv    load_model: loaded multimodal model, '/home/clarence/Downloads/mmproj-BF16(3).gguf'
+[34m0.04.257.802[0m [32mI [0msrv    load_model: initializing slots, n_slots = 1
+[34m0.04.292.377[0m [32mI [0mcommon_context_can_seq_rm: the context supports bounded partial sequence removal
+[34m0.04.352.239[0m [32mI [0mcommon_speculative_init: adding speculative implementation 'draft-mtp'
+[34m0.04.352.317[0m [32mI [0msrv    load_model: speculative decoding context initialized
+[34m0.04.352.317[0m [32mI [0mslot   load_model: id  0 | task -1 | new slot, n_ctx = 175104
+[34m0.04.352.350[0m [32mI [0msrv    load_model: prompt cache is enabled, size limit: 10249 MiB
+[34m0.04.352.350[0m [32mI [0msrv    load_model: use `--cache-ram 0` to disable the prompt cache
+[34m0.04.352.350[0m [32mI [0msrv    load_model: for more info see https://github.com/ggml-org/llama.cpp/pull/16391
+[34m0.04.352.362[0m [35mW srv          init: --cache-idle-slots requires --kv-unified, disabling
+[0m[34m0.04.362.328[0m [32mI [0minit: chat template, example_format: '<|im_start|>system
+You are a helpful assistant<|im_end|>
+<|im_start|>user
+Hello<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+Hi there<|im_end|>
+<|im_start|>user
+How are you?<|im_end|>
+<|im_start|>assistant
+<think>
+'
+[34m0.04.369.801[0m [32mI [0msrv          init: init: chat template, thinking = 1
+[34m0.04.369.815[0m [32mI [0msrv          main: model loaded
+[34m0.04.369.816[0m [32mI [0msrv          main: server is listening on http://0.0.0.0:8180
+[34m0.04.369.818[0m [32mI [0msrv  update_slots: all slots are idle
+[34m0.23.057.338[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m0.23.057.550[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = -1
+[34m0.23.057.561[0m [32mI [0msrv  get_availabl: updating prompt cache
+[34m0.23.057.565[0m [32mI [0msrv          load:  - looking for better prompt, base f_keep = -1.000, sim = 0.000
+[34m0.23.057.569[0m [32mI [0msrv        update:  - cache state: 0 prompts, 0.000 MiB (limits: 10249.000 MiB, 175104 tokens, 10746855424 est)
+[34m0.23.057.570[0m [32mI [0msrv  get_availabl: prompt cache update took 0.01 ms
+[34m0.23.057.631[0m [32mI [0mslot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+[34m0.23.134.587[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m0.23.336.263[0m [32mI [0mslot create_check: id  0 | task 0 | created context checkpoint 1 of 10 (pos_min = 104, pos_max = 104, n_tokens = 105, size = 150.038 MiB)
+[34m0.24.068.641[0m [32mI [0mslot create_check: id  0 | task 0 | created context checkpoint 2 of 10 (pos_min = 616, pos_max = 616, n_tokens = 617, size = 152.048 MiB)
+[34m0.25.599.576[0m [32mI [0mslot print_timing: id  0 | task 0 | n_decoded =    106, tg =  72.04 t/s
+[34m0.28.611.052[0m [32mI [0mslot print_timing: id  0 | task 0 | n_decoded =    266, tg =  59.34 t/s
+[34m0.31.632.220[0m [32mI [0mslot print_timing: id  0 | task 0 | n_decoded =    426, tg =  56.77 t/s
+[34m0.34.656.110[0m [32mI [0mslot print_timing: id  0 | task 0 | n_decoded =    603, tg =  57.28 t/s
+[34m0.37.688.840[0m [32mI [0mslot print_timing: id  0 | task 0 | n_decoded =    752, tg =  55.45 t/s
+[34m0.40.725.176[0m [32mI [0mslot print_timing: id  0 | task 0 | n_decoded =    932, tg =  56.15 t/s
+[34m0.42.748.374[0m [32mI [0mslot print_timing: id  0 | task 0 | 
+prompt eval time =    1070.45 ms /   621 tokens (    1.72 ms per token,   580.13 tokens per second)
+       eval time =   18620.13 ms /  1038 tokens (   17.94 ms per token,    55.75 tokens per second)
+      total time =   19690.58 ms /  1659 tokens
+draft acceptance rate = 0.50323 (  779 accepted /  1548 generated)
+[34m0.42.748.405[0m [32mI [0mstatistics draft-mtp: #calls(b,g,a) = 1 258 258, #gen drafts = 258, #acc drafts = 217, #gen tokens = 1548, #acc tokens = 779, dur(b,g,a) = 0.004, 4683.762, 0.371 ms
+[34m0.42.748.445[0m [32mI [0mslot      release: id  0 | task 0 | stop processing: n_tokens = 1658, truncated = 0
+[34m0.42.748.455[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = 1149591870045
+[34m0.42.748.455[0m [32mI [0msrv  get_availabl: updating prompt cache
+[34m0.42.748.804[0m [35mW srv   prompt_save:  - saving prompt with length 1658, total state size = 259.791 MiB (draft: 6.508 MiB)
+[0m[34m0.42.963.675[0m [32mI [0msrv          load:  - looking for better prompt, base f_keep = 0.002, sim = 0.000
+[34m0.42.963.680[0m [32mI [0msrv        update:  - cache state: 1 prompts, 561.878 MiB (limits: 10249.000 MiB, 175104 tokens, 175104 est)
+[34m0.42.963.681[0m [32mI [0msrv        update:    - prompt 0x6502c15a53e0:    1658 tokens, checkpoints:  2,   561.878 MiB
+[34m0.42.963.682[0m [32mI [0msrv  get_availabl: prompt cache update took 215.22 ms
+[34m0.42.964.219[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m0.42.964.234[0m [32mI [0mslot launch_slot_: id  0 | task 2 | processing task, is_child = 0
+[34m0.42.964.241[0m [35mW slot update_slots: id  0 | task 2 | n_past = 3, slot.prompt.tokens.size() = 1658, seq_id = 0, pos_min = 1657, n_swa = 0
+[0m[34m0.42.964.241[0m [32mI [0mslot update_slots: id  0 | task 2 | Checking checkpoint with [616, 616] against 3...
+[34m0.42.964.242[0m [32mI [0mslot update_slots: id  0 | task 2 | Checking checkpoint with [104, 104] against 3...
+[34m0.42.964.242[0m [35mW slot update_slots: id  0 | task 2 | forcing full prompt re-processing due to lack of cache data (likely due to SWA or hybrid/recurrent memory, see https://github.com/ggml-org/llama.cpp/pull/13194#issuecomment-2868343055)
+[0m[34m0.42.964.243[0m [35mW slot update_slots: id  0 | task 2 | erased invalidated context checkpoint (pos_min = 104, pos_max = 104, n_tokens = 105, n_swa = 0, pos_next = 0, size = 150.038 MiB)
+[0m[34m0.42.967.710[0m [35mW slot update_slots: id  0 | task 2 | erased invalidated context checkpoint (pos_min = 616, pos_max = 616, n_tokens = 617, n_swa = 0, pos_next = 0, size = 152.048 MiB)
+[0m[34m0.47.997.435[0m [32mI [0mslot print_timing: id  0 | task 2 | prompt processing, n_tokens =   4096, progress = 0.38, t =   5.03 s / 813.80 tokens per second
+[34m0.53.694.308[0m [32mI [0mslot print_timing: id  0 | task 2 | prompt processing, n_tokens =   6144, progress = 0.57, t =  10.73 s / 572.60 tokens per second
+[34m0.57.748.900[0m [32mI [0mslot print_timing: id  0 | task 2 | prompt processing, n_tokens =   8192, progress = 0.76, t =  14.78 s / 554.09 tokens per second
+[34m0.57.749.143[0m [32mI [0mslot update_slots: id  0 | task 2 | 8192 tokens since last checkpoint at 0, creating new checkpoint during processing at position 10240
+[34m0.57.842.484[0m [32mI [0mslot create_check: id  0 | task 2 | created context checkpoint 1 of 10 (pos_min = 8191, pos_max = 8191, n_tokens = 8192, size = 181.782 MiB)
+[34m1.00.344.719[0m [32mI [0mslot print_timing: id  0 | task 2 | prompt processing, n_tokens =  10240, progress = 0.95, t =  17.38 s / 589.17 tokens per second
+[34m1.00.494.596[0m [32mI [0mslot print_timing: id  0 | task 2 | prompt processing, n_tokens =  10290, progress = 0.95, t =  17.53 s / 586.98 tokens per second
+[34m1.00.588.608[0m [32mI [0mslot create_check: id  0 | task 2 | created context checkpoint 2 of 10 (pos_min = 10289, pos_max = 10289, n_tokens = 10290, size = 190.018 MiB)
+[34m1.02.604.785[0m [32mI [0mslot print_timing: id  0 | task 2 | prompt processing, n_tokens =  10802, progress = 1.00, t =  19.64 s / 549.98 tokens per second
+[34m1.02.699.541[0m [32mI [0mslot create_check: id  0 | task 2 | created context checkpoint 3 of 10 (pos_min = 10801, pos_max = 10801, n_tokens = 10802, size = 192.028 MiB)
+[34m1.07.489.295[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m1.07.978.238[0m [32mI [0mslot print_timing: id  0 | task 2 | n_decoded =    101, tg =  19.60 t/s
+[34m1.10.656.684[0m [32mI [0mslot print_timing: id  0 | task 2 | 
+prompt eval time =   19861.14 ms / 10806 tokens (    1.84 ms per token,   544.08 tokens per second)
+       eval time =    7831.10 ms /   197 tokens (   39.75 ms per token,    25.16 tokens per second)
+      total time =   27692.24 ms / 11003 tokens
+draft acceptance rate = 0.53546 (  151 accepted /   282 generated)
+[34m1.10.656.695[0m [32mI [0mstatistics draft-mtp: #calls(b,g,a) = 2 305 305, #gen drafts = 305, #acc drafts = 256, #gen tokens = 1830, #acc tokens = 930, dur(b,g,a) = 0.006, 5526.195, 0.440 ms
+[34m1.10.657.087[0m [32mI [0mslot      release: id  0 | task 2 | stop processing: n_tokens = 11004, truncated = 0
+[34m1.10.657.095[0m [32mI [0msrv  update_slots: all slots are idle
+[34m1.11.209.152[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m1.11.211.160[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.994 (> 0.100 thold), f_keep = 1.000
+[34m1.11.211.684[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m1.11.211.720[0m [32mI [0mslot launch_slot_: id  0 | task 318 | processing task, is_child = 0
+[34m1.11.312.975[0m [32mI [0mslot create_check: id  0 | task 318 | created context checkpoint 4 of 10 (pos_min = 11003, pos_max = 11003, n_tokens = 11004, size = 192.820 MiB)
+[34m1.11.760.864[0m [32mI [0mslot create_check: id  0 | task 318 | created context checkpoint 5 of 10 (pos_min = 11069, pos_max = 11069, n_tokens = 11070, size = 193.079 MiB)
+[34m1.16.391.585[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =    102, tg =  22.64 t/s
+[34m1.19.559.000[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =    170, tg =  22.16 t/s
+[34m1.22.594.842[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =    235, tg =  21.95 t/s
+[34m1.23.739.239[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m1.25.598.037[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =    304, tg =  22.17 t/s
+[34m1.28.603.231[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =    360, tg =  21.54 t/s
+[34m1.31.603.572[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =    455, tg =  23.08 t/s
+[34m1.34.751.952[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =    540, tg =  23.62 t/s
+[34m1.37.887.748[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =    624, tg =  24.00 t/s
+[34m1.41.011.188[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =    711, tg =  24.41 t/s
+[34m1.44.145.442[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =    808, tg =  25.05 t/s
+[34m1.47.285.031[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =    897, tg =  25.34 t/s
+[34m1.50.445.779[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =    961, tg =  24.92 t/s
+[34m1.53.609.622[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   1057, tg =  25.33 t/s
+[34m1.56.614.767[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   1165, tg =  26.05 t/s
+[34m1.59.617.006[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   1257, tg =  26.34 t/s
+[34m2.02.749.042[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   1350, tg =  26.54 t/s
+[34m2.05.900.334[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   1443, tg =  26.72 t/s
+[34m2.08.903.613[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   1516, tg =  26.59 t/s
+[34m2.12.064.121[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   1618, tg =  26.89 t/s
+[34m2.15.070.344[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   1716, tg =  27.16 t/s
+[34m2.18.240.798[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   1823, tg =  27.47 t/s
+[34m2.21.242.736[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   1929, tg =  27.81 t/s
+[34m2.24.395.055[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2028, tg =  27.97 t/s
+[34m2.27.564.201[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2135, tg =  28.21 t/s
+[34m2.30.731.926[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2218, tg =  28.13 t/s
+[34m2.33.739.995[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2300, tg =  28.10 t/s
+[34m2.36.762.022[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2377, tg =  28.01 t/s
+[34m2.39.908.778[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2481, tg =  28.19 t/s
+[34m2.43.055.331[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2556, tg =  28.04 t/s
+[34m2.46.207.750[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2644, tg =  28.03 t/s
+[34m2.49.378.439[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2727, tg =  27.97 t/s
+[34m2.52.396.060[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2793, tg =  27.79 t/s
+[34m2.55.553.398[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2838, tg =  27.38 t/s
+[34m2.58.588.292[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2889, tg =  27.08 t/s
+[34m3.01.614.715[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   2971, tg =  27.08 t/s
+[34m3.04.623.542[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3023, tg =  26.81 t/s
+[34m3.07.625.014[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3084, tg =  26.65 t/s
+[34m3.10.786.447[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3174, tg =  26.69 t/s
+[34m3.13.947.851[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3269, tg =  26.78 t/s
+[34m3.17.107.387[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3343, tg =  26.70 t/s
+[34m3.20.273.650[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3403, tg =  26.51 t/s
+[34m3.23.287.431[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3475, tg =  26.45 t/s
+[34m3.26.306.935[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3547, tg =  26.39 t/s
+[34m3.29.315.550[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3647, tg =  26.54 t/s
+[34m3.32.451.219[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3742, tg =  26.62 t/s
+[34m3.35.457.226[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3795, tg =  26.43 t/s
+[34m3.38.483.271[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3844, tg =  26.22 t/s
+[34m3.41.645.352[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   3925, tg =  26.21 t/s
+[34m3.44.812.904[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4013, tg =  26.24 t/s
+[34m3.47.813.025[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4103, tg =  26.31 t/s
+[34m3.50.962.884[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4199, tg =  26.40 t/s
+[34m3.53.981.717[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4271, tg =  26.35 t/s
+[34m3.57.150.895[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4362, tg =  26.39 t/s
+[34m4.00.152.955[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4442, tg =  26.40 t/s
+[34m4.03.311.644[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4506, tg =  26.29 t/s
+[34m4.06.471.894[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4595, tg =  26.32 t/s
+[34m4.09.619.956[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4684, tg =  26.35 t/s
+[34m4.12.628.089[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4762, tg =  26.35 t/s
+[34m4.15.637.441[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4842, tg =  26.35 t/s
+[34m4.18.803.473[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4923, tg =  26.34 t/s
+[34m4.21.810.951[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   4984, tg =  26.24 t/s
+[34m4.24.971.083[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   5061, tg =  26.21 t/s
+[34m4.27.980.806[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   5154, tg =  26.28 t/s
+[34m4.30.983.740[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   5268, tg =  26.46 t/s
+[34m4.34.148.373[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   5370, tg =  26.55 t/s
+[34m4.37.308.348[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   5457, tg =  26.56 t/s
+[34m4.40.332.022[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   5547, tg =  26.61 t/s
+[34m4.43.387.364[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   5634, tg =  26.64 t/s
+[34m4.46.406.546[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   5738, tg =  26.75 t/s
+[34m4.49.427.597[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   5830, tg =  26.80 t/s
+[34m4.52.432.541[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   5937, tg =  26.92 t/s
+[34m4.55.455.521[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   6038, tg =  27.01 t/s
+[34m4.58.460.565[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   6141, tg =  27.10 t/s
+[34m5.01.489.007[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   6239, tg =  27.17 t/s
+[34m5.04.513.726[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   6317, tg =  27.16 t/s
+[34m5.07.661.905[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   6397, tg =  27.13 t/s
+[34m5.10.683.673[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   6488, tg =  27.17 t/s
+[34m5.13.848.559[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   6580, tg =  27.19 t/s
+[34m5.17.013.988[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   6698, tg =  27.32 t/s
+[34m5.20.162.683[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   6785, tg =  27.33 t/s
+[34m5.23.203.959[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   6865, tg =  27.32 t/s
+[34m5.26.225.634[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   6973, tg =  27.42 t/s
+[34m5.29.394.158[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   7081, tg =  27.50 t/s
+[34m5.32.398.074[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   7176, tg =  27.55 t/s
+[34m5.35.420.133[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   7256, tg =  27.53 t/s
+[34m5.38.449.505[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   7345, tg =  27.55 t/s
+[34m5.41.464.572[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   7424, tg =  27.54 t/s
+[34m5.44.478.511[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   7532, tg =  27.63 t/s
+[34m5.47.646.759[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   7639, tg =  27.70 t/s
+[34m5.50.656.453[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   7737, tg =  27.75 t/s
+[34m5.53.659.488[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   7830, tg =  27.79 t/s
+[34m5.56.825.486[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   7918, tg =  27.79 t/s
+[34m5.59.995.839[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   8004, tg =  27.78 t/s
+[34m6.02.999.054[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   8110, tg =  27.86 t/s
+[34m6.06.003.608[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   8193, tg =  27.86 t/s
+[34m6.09.059.654[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   8299, tg =  27.93 t/s
+[34m6.12.100.226[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   8379, tg =  27.91 t/s
+[34m6.15.132.521[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   8481, tg =  27.97 t/s
+[34m6.18.135.945[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   8562, tg =  27.96 t/s
+[34m6.21.182.849[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   8661, tg =  28.00 t/s
+[34m6.24.224.868[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   8746, tg =  28.00 t/s
+[34m6.27.276.086[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   8845, tg =  28.04 t/s
+[34m6.30.318.653[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   8936, tg =  28.06 t/s
+[34m6.33.370.093[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   9014, tg =  28.04 t/s
+[34m6.36.401.067[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   9106, tg =  28.06 t/s
+[34m6.39.436.536[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   9186, tg =  28.04 t/s
+[34m6.42.474.084[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   9282, tg =  28.08 t/s
+[34m6.45.499.003[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   9345, tg =  28.01 t/s
+[34m6.48.525.868[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   9428, tg =  28.01 t/s
+[34m6.51.692.855[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   9512, tg =  27.99 t/s
+[34m6.54.719.036[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   9587, tg =  27.96 t/s
+[34m6.57.743.139[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   9681, tg =  27.99 t/s
+[34m7.00.773.904[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   9770, tg =  28.00 t/s
+[34m7.03.784.750[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   9856, tg =  28.01 t/s
+[34m7.06.832.391[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =   9934, tg =  27.99 t/s
+[34m7.09.879.254[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  10004, tg =  27.94 t/s
+[34m7.12.888.009[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  10089, tg =  27.95 t/s
+[34m7.15.896.842[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  10173, tg =  27.95 t/s
+[34m7.18.919.179[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  10245, tg =  27.91 t/s
+[34m7.21.965.904[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  10338, tg =  27.93 t/s
+[34m7.24.986.079[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  10427, tg =  27.95 t/s
+[34m7.28.018.995[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  10522, tg =  27.97 t/s
+[34m7.31.060.955[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  10604, tg =  27.97 t/s
+[34m7.34.084.188[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  10706, tg =  28.01 t/s
+[34m7.37.106.579[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  10807, tg =  28.05 t/s
+[34m7.40.129.581[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  10893, tg =  28.06 t/s
+[34m7.43.151.126[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  10972, tg =  28.04 t/s
+[34m7.46.204.362[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  11057, tg =  28.04 t/s
+[34m7.49.206.611[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  11170, tg =  28.11 t/s
+[34m7.52.208.273[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  11277, tg =  28.17 t/s
+[34m7.55.227.213[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  11379, tg =  28.21 t/s
+[34m7.58.268.648[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  11481, tg =  28.25 t/s
+[34m8.01.308.150[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  11577, tg =  28.28 t/s
+[34m8.04.348.600[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  11649, tg =  28.24 t/s
+[34m8.07.401.065[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  11712, tg =  28.19 t/s
+[34m8.10.435.012[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  11792, tg =  28.17 t/s
+[34m8.13.494.064[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  11890, tg =  28.20 t/s
+[34m8.16.524.189[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  11998, tg =  28.25 t/s
+[34m8.19.555.532[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  12114, tg =  28.33 t/s
+[34m8.22.597.928[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  12212, tg =  28.35 t/s
+[34m8.25.648.932[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  12289, tg =  28.33 t/s
+[34m8.28.688.694[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  12374, tg =  28.33 t/s
+[34m8.31.734.125[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  12447, tg =  28.30 t/s
+[34m8.34.799.549[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  12547, tg =  28.33 t/s
+[34m8.37.830.158[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  12644, tg =  28.35 t/s
+[34m8.40.890.141[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  12752, tg =  28.40 t/s
+[34m8.43.915.300[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  12859, tg =  28.45 t/s
+[34m8.46.937.480[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  12956, tg =  28.47 t/s
+[34m8.50.001.750[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  13063, tg =  28.51 t/s
+[34m8.53.048.460[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  13166, tg =  28.55 t/s
+[34m8.56.119.070[0m [32mI [0mslot print_timing: id  0 | task 318 | n_decoded =  13261, tg =  28.57 t/s
+[34m8.57.673.286[0m [32mI [0mslot print_timing: id  0 | task 318 | 
+prompt eval time =     674.61 ms /    70 tokens (    9.64 ms per token,   103.76 tokens per second)
+       eval time =  465786.78 ms / 13316 tokens (   34.98 ms per token,    28.59 tokens per second)
+      total time =  466461.39 ms / 13386 tokens
+draft acceptance rate = 0.63143 (10536 accepted / 16686 generated)
+[34m8.57.673.300[0m [32mI [0mstatistics draft-mtp: #calls(b,g,a) = 3 3086 3086, #gen drafts = 3086, #acc drafts = 2788, #gen tokens = 18516, #acc tokens = 11466, dur(b,g,a) = 0.007, 56152.013, 5.205 ms
+[34m8.57.673.748[0m [32mI [0mslot      release: id  0 | task 318 | stop processing: n_tokens = 24391, truncated = 0
+[34m8.57.673.859[0m [32mI [0msrv  update_slots: all slots are idle
+[34m8.57.846.091[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m8.57.848.299[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.999 (> 0.100 thold), f_keep = 1.000
+[34m8.57.848.913[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m8.57.848.966[0m [32mI [0mslot launch_slot_: id  0 | task 3102 | processing task, is_child = 0
+[34m8.57.962.339[0m [32mI [0mslot create_check: id  0 | task 3102 | created context checkpoint 6 of 10 (pos_min = 24390, pos_max = 24390, n_tokens = 24391, size = 245.369 MiB)
+[34m8.58.780.356[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m9.00.678.953[0m [32mI [0mslot print_timing: id  0 | task 3102 | 
+prompt eval time =     409.54 ms /    19 tokens (   21.55 ms per token,    46.39 tokens per second)
+       eval time =    2420.28 ms /    85 tokens (   28.47 ms per token,    35.12 tokens per second)
+      total time =    2829.82 ms /   104 tokens
+draft acceptance rate = 0.83333 (   70 accepted /    84 generated)
+[34m9.00.678.965[0m [32mI [0mstatistics draft-mtp: #calls(b,g,a) = 4 3100 3100, #gen drafts = 3100, #acc drafts = 2802, #gen tokens = 18600, #acc tokens = 11536, dur(b,g,a) = 0.007, 56418.836, 5.230 ms
+[34m9.00.679.672[0m [32mI [0mslot      release: id  0 | task 3102 | stop processing: n_tokens = 24494, truncated = 0
+[34m9.00.679.738[0m [32mI [0msrv  update_slots: all slots are idle
+[34m9.01.252.720[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m9.01.254.682[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.998 (> 0.100 thold), f_keep = 1.000
+[34m9.01.255.287[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m9.01.255.333[0m [32mI [0mslot launch_slot_: id  0 | task 3119 | processing task, is_child = 0
+[34m9.01.372.992[0m [32mI [0mslot create_check: id  0 | task 3119 | created context checkpoint 7 of 10 (pos_min = 24493, pos_max = 24493, n_tokens = 24494, size = 245.773 MiB)
+[34m9.07.087.042[0m [32mI [0mslot print_timing: id  0 | task 3119 | n_decoded =    100, tg =  18.85 t/s
+[34m9.10.109.569[0m [32mI [0mslot print_timing: id  0 | task 3119 | n_decoded =    147, tg =  17.65 t/s
+[34m9.10.277.723[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m9.12.783.081[0m [32mI [0mslot print_timing: id  0 | task 3119 | 
+prompt eval time =     526.30 ms /    58 tokens (    9.07 ms per token,   110.20 tokens per second)
+       eval time =   11001.28 ms /   225 tokens (   48.89 ms per token,    20.45 tokens per second)
+      total time =   11527.58 ms /   283 tokens
+draft acceptance rate = 0.41026 (  160 accepted /   390 generated)
+[34m9.12.783.094[0m [32mI [0mstatistics draft-mtp: #calls(b,g,a) = 5 3165 3165, #gen drafts = 3165, #acc drafts = 2850, #gen tokens = 18990, #acc tokens = 11696, dur(b,g,a) = 0.008, 57681.042, 5.342 ms
+[34m9.12.783.775[0m [32mI [0mslot      release: id  0 | task 3119 | stop processing: n_tokens = 24777, truncated = 0
+[34m9.12.783.838[0m [32mI [0msrv  update_slots: all slots are idle
+[34m9.13.084.415[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m9.13.086.345[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.578 (> 0.100 thold), f_keep = 1.000
+[34m9.13.086.941[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m9.13.086.991[0m [32mI [0mslot launch_slot_: id  0 | task 3187 | processing task, is_child = 0
+[34m9.21.388.367[0m [32mI [0mslot print_timing: id  0 | task 3187 | prompt processing, n_tokens =   2048, progress = 0.63, t =   8.30 s / 246.71 tokens per second
+[34m9.29.651.729[0m [32mI [0mslot print_timing: id  0 | task 3187 | prompt processing, n_tokens =   4096, progress = 0.67, t =  16.56 s / 247.27 tokens per second
+[34m9.37.751.811[0m [32mI [0mslot print_timing: id  0 | task 3187 | prompt processing, n_tokens =   6144, progress = 0.72, t =  24.66 s / 249.10 tokens per second
+[34m9.45.976.258[0m [32mI [0mslot print_timing: id  0 | task 3187 | prompt processing, n_tokens =   8192, progress = 0.77, t =  32.89 s / 249.08 tokens per second
+[34m9.45.976.448[0m [32mI [0mslot update_slots: id  0 | task 3187 | 8192 tokens since last checkpoint at 24494, creating new checkpoint during processing at position 35017
+[34m9.46.111.655[0m [32mI [0mslot create_check: id  0 | task 3187 | created context checkpoint 8 of 10 (pos_min = 32968, pos_max = 32968, n_tokens = 32969, size = 279.040 MiB)
+[34m9.54.596.072[0m [32mI [0mslot print_timing: id  0 | task 3187 | prompt processing, n_tokens =  10240, progress = 0.82, t =  41.51 s / 246.69 tokens per second
+[34m10.03.178.639[0m [32mI [0mslot print_timing: id  0 | task 3187 | prompt processing, n_tokens =  12288, progress = 0.86, t =  50.09 s / 245.31 tokens per second
+[34m10.11.318.409[0m [32mI [0mslot print_timing: id  0 | task 3187 | prompt processing, n_tokens =  14336, progress = 0.91, t =  58.23 s / 246.19 tokens per second
+[34m10.19.546.582[0m [32mI [0mslot print_timing: id  0 | task 3187 | prompt processing, n_tokens =  16384, progress = 0.96, t =  66.46 s / 246.53 tokens per second
+[34m10.19.546.814[0m [32mI [0mslot update_slots: id  0 | task 3187 | 8192 tokens since last checkpoint at 32969, creating new checkpoint during processing at position 42356
+[34m10.19.710.424[0m [32mI [0mslot create_check: id  0 | task 3187 | created context checkpoint 9 of 10 (pos_min = 41160, pos_max = 41160, n_tokens = 41161, size = 311.196 MiB)
+[34m10.24.695.755[0m [32mI [0mslot print_timing: id  0 | task 3187 | prompt processing, n_tokens =  17579, progress = 0.99, t =  71.61 s / 245.49 tokens per second
+[34m10.24.847.461[0m [32mI [0mslot create_check: id  0 | task 3187 | created context checkpoint 10 of 10 (pos_min = 42355, pos_max = 42355, n_tokens = 42356, size = 315.887 MiB)
+[34m10.25.646.199[0m [32mI [0mslot print_timing: id  0 | task 3187 | prompt processing, n_tokens =  18091, progress = 1.00, t =  72.56 s / 249.33 tokens per second
+[34m10.25.648.914[0m [35mW slot create_check: id  0 | task 3187 | erasing old context checkpoint (pos_min = 8191, pos_max = 8191, n_tokens = 8192, size = 181.782 MiB)
+[0m[34m10.25.803.778[0m [32mI [0mslot create_check: id  0 | task 3187 | created context checkpoint 10 of 10 (pos_min = 42867, pos_max = 42867, n_tokens = 42868, size = 317.897 MiB)
+[34m10.28.460.021[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =    103, tg =  39.67 t/s
+[34m10.31.498.815[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =    232, tg =  41.17 t/s
+[34m10.34.554.669[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =    389, tg =  44.76 t/s
+[34m10.37.613.748[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =    576, tg =  49.02 t/s
+[34m10.40.675.799[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =    713, tg =  48.14 t/s
+[34m10.43.726.343[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =    833, tg =  46.63 t/s
+[34m10.46.759.480[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =    960, tg =  45.94 t/s
+[34m10.48.671.852[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m10.49.807.309[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   1115, tg =  46.57 t/s
+[34m10.52.880.605[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   1309, tg =  48.45 t/s
+[34m10.55.956.779[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   1513, tg =  50.28 t/s
+[34m10.59.022.953[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   1744, tg =  52.59 t/s
+[34m11.02.090.111[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   1972, tg =  54.44 t/s
+[34m11.05.160.196[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   2206, tg =  56.14 t/s
+[34m11.08.242.684[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   2449, tg =  57.79 t/s
+[34m11.11.329.606[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   2690, tg =  59.17 t/s
+[34m11.14.416.020[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   2920, tg =  60.14 t/s
+[34m11.17.462.703[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   3142, tg =  60.89 t/s
+[34m11.20.497.150[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   3348, tg =  61.28 t/s
+[34m11.23.509.264[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   3539, tg =  61.39 t/s
+[34m11.26.551.255[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   3692, tg =  60.84 t/s
+[34m11.29.625.726[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   3825, tg =  59.99 t/s
+[34m11.32.657.852[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   3948, tg =  59.11 t/s
+[34m11.35.696.089[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   4109, tg =  58.84 t/s
+[34m11.38.751.753[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   4289, tg =  58.84 t/s
+[34m11.41.772.683[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   4490, tg =  59.15 t/s
+[34m11.44.816.356[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   4694, tg =  59.45 t/s
+[34m11.47.890.383[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   4905, tg =  59.80 t/s
+[34m11.50.911.038[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   5132, tg =  60.34 t/s
+[34m11.53.958.189[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   5352, tg =  60.75 t/s
+[34m11.56.985.603[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   5582, tg =  61.26 t/s
+[34m12.00.015.805[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   5809, tg =  61.70 t/s
+[34m12.03.042.691[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   6036, tg =  62.11 t/s
+[34m12.06.081.818[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   6268, tg =  62.54 t/s
+[34m12.09.150.572[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   6481, tg =  62.75 t/s
+[34m12.12.212.030[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   6712, tg =  63.11 t/s
+[34m12.15.280.939[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   6939, tg =  63.42 t/s
+[34m12.18.353.307[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   7143, tg =  63.50 t/s
+[34m12.21.427.484[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   7338, tg =  63.50 t/s
+[34m12.24.480.828[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   7500, tg =  63.23 t/s
+[34m12.27.564.704[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   7700, tg =  63.27 t/s
+[34m12.30.626.437[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   7877, tg =  63.14 t/s
+[34m12.33.730.555[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   8052, tg =  62.97 t/s
+[34m12.36.740.643[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   8210, tg =  62.73 t/s
+[34m12.39.828.384[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   8386, tg =  62.60 t/s
+[34m12.42.912.210[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   8608, tg =  62.81 t/s
+[34m12.45.979.639[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   8775, tg =  62.63 t/s
+[34m12.49.084.967[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   8981, tg =  62.71 t/s
+[34m12.52.111.219[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   9176, tg =  62.74 t/s
+[34m12.55.188.514[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   9369, tg =  62.74 t/s
+[34m12.58.283.732[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   9550, tg =  62.66 t/s
+[34m13.01.343.290[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   9728, tg =  62.57 t/s
+[34m13.04.435.799[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =   9917, tg =  62.54 t/s
+[34m13.07.503.696[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =  10103, tg =  62.50 t/s
+[34m13.10.556.679[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =  10296, tg =  62.52 t/s
+[34m13.13.573.507[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =  10515, tg =  62.70 t/s
+[34m13.16.594.098[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =  10739, tg =  62.90 t/s
+[34m13.19.680.083[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =  10947, tg =  62.98 t/s
+[34m13.22.682.069[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =  11161, tg =  63.12 t/s
+[34m13.25.685.153[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =  11379, tg =  63.28 t/s
+[34m13.28.760.317[0m [32mI [0mslot print_timing: id  0 | task 3187 | n_decoded =  11589, tg =  63.36 t/s
+[34m13.31.121.923[0m [32mI [0mslot print_timing: id  0 | task 3187 | 
+prompt eval time =   72776.39 ms / 18095 tokens (    4.02 ms per token,   248.64 tokens per second)
+       eval time =  185258.36 ms / 11755 tokens (   15.76 ms per token,    63.45 tokens per second)
+      total time =  258034.75 ms / 29850 tokens
+draft acceptance rate = 0.85435 ( 9837 accepted / 11514 generated)
+[34m13.31.122.083[0m [32mI [0mstatistics draft-mtp: #calls(b,g,a) = 6 5084 5084, #gen drafts = 5084, #acc drafts = 4709, #gen tokens = 30504, #acc tokens = 21533, dur(b,g,a) = 0.009, 104430.632, 9.676 ms
+[34m13.31.123.227[0m [32mI [0mslot      release: id  0 | task 3187 | stop processing: n_tokens = 54628, truncated = 0
+[34m13.31.123.345[0m [32mI [0msrv  update_slots: all slots are idle
+[34m13.31.467.803[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m13.31.470.007[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 1.000 (> 0.100 thold), f_keep = 1.000
+[34m13.31.470.614[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m13.31.470.665[0m [32mI [0mslot launch_slot_: id  0 | task 5118 | processing task, is_child = 0
+[34m13.31.470.839[0m [35mW slot create_check: id  0 | task 5118 | erasing old context checkpoint (pos_min = 10289, pos_max = 10289, n_tokens = 10290, size = 190.018 MiB)
+[0m[34m13.31.653.336[0m [32mI [0mslot create_check: id  0 | task 5118 | created context checkpoint 10 of 10 (pos_min = 54627, pos_max = 54627, n_tokens = 54628, size = 364.059 MiB)
+[34m13.32.091.365[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m13.33.915.594[0m [32mI [0mslot print_timing: id  0 | task 5118 | n_decoded =    100, tg =  47.74 t/s
+[34m13.36.926.005[0m [32mI [0mslot print_timing: id  0 | task 5118 | n_decoded =    257, tg =  50.34 t/s
+[34m13.40.006.279[0m [32mI [0mslot print_timing: id  0 | task 5118 | n_decoded =    434, tg =  53.02 t/s
+[34m13.40.730.769[0m [32mI [0mslot print_timing: id  0 | task 5118 | 
+prompt eval time =     350.11 ms /    19 tokens (   18.43 ms per token,    54.27 tokens per second)
+       eval time =    8909.83 ms /   485 tokens (   18.37 ms per token,    54.43 tokens per second)
+      total time =    9259.93 ms /   504 tokens
+draft acceptance rate = 0.65816 (  387 accepted /   588 generated)
+[34m13.40.730.778[0m [32mI [0mstatistics draft-mtp: #calls(b,g,a) = 7 5182 5182, #gen drafts = 5182, #acc drafts = 4800, #gen tokens = 31092, #acc tokens = 21920, dur(b,g,a) = 0.010, 106461.683, 9.795 ms
+[34m13.40.731.717[0m [32mI [0mslot      release: id  0 | task 5118 | stop processing: n_tokens = 55132, truncated = 0
+[34m13.40.731.774[0m [32mI [0msrv  update_slots: all slots are idle
+[34m13.41.590.527[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m13.41.592.511[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.999 (> 0.100 thold), f_keep = 1.000
+[34m13.41.593.062[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m13.41.593.112[0m [32mI [0mslot launch_slot_: id  0 | task 5219 | processing task, is_child = 0
+[34m13.41.593.352[0m [35mW slot create_check: id  0 | task 5219 | erasing old context checkpoint (pos_min = 10801, pos_max = 10801, n_tokens = 10802, size = 192.028 MiB)
+[0m[34m13.41.789.166[0m [32mI [0mslot create_check: id  0 | task 5219 | created context checkpoint 10 of 10 (pos_min = 55131, pos_max = 55131, n_tokens = 55132, size = 366.037 MiB)
+[34m13.42.847.395[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m13.44.124.831[0m [32mI [0mslot print_timing: id  0 | task 5219 | n_decoded =    102, tg =  48.68 t/s
+[34m13.46.397.482[0m [32mI [0mslot print_timing: id  0 | task 5219 | 
+prompt eval time =     436.24 ms /    62 tokens (    7.04 ms per token,   142.12 tokens per second)
+       eval time =    4367.95 ms /   248 tokens (   17.61 ms per token,    56.78 tokens per second)
+      total time =    4804.20 ms /   310 tokens
+draft acceptance rate = 0.69097 (  199 accepted /   288 generated)
+[34m13.46.397.494[0m [32mI [0mstatistics draft-mtp: #calls(b,g,a) = 8 5230 5230, #gen drafts = 5230, #acc drafts = 4843, #gen tokens = 31380, #acc tokens = 22119, dur(b,g,a) = 0.010, 107452.422, 9.863 ms
+[34m13.46.398.755[0m [32mI [0mslot      release: id  0 | task 5219 | stop processing: n_tokens = 55441, truncated = 0
+[34m13.46.398.819[0m [32mI [0msrv  update_slots: all slots are idle
+[34m13.47.094.262[0m [32mI [0msrv  params_from_: Chat format: peg-native
+[34m13.47.096.444[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, sim_best = 0.995 (> 0.100 thold), f_keep = 1.000
+[34m13.47.097.034[0m [32mI [0mreasoning-budget: activated, budget=2147483647 tokens
+[34m13.47.097.081[0m [32mI [0mslot launch_slot_: id  0 | task 5270 | processing task, is_child = 0
+[34m13.47.097.260[0m [35mW slot create_check: id  0 | task 5270 | erasing old context checkpoint (pos_min = 11003, pos_max = 11003, n_tokens = 11004, size = 192.820 MiB)
+[0m[34m13.47.275.589[0m [32mI [0mslot create_check: id  0 | task 5270 | created context checkpoint 10 of 10 (pos_min = 55440, pos_max = 55440, n_tokens = 55441, size = 367.250 MiB)
+[34m13.47.743.191[0m [35mW slot create_check: id  0 | task 5270 | erasing old context checkpoint (pos_min = 11069, pos_max = 11069, n_tokens = 11070, size = 193.079 MiB)
+[0m[34m13.47.919.652[0m [32mI [0mslot create_check: id  0 | task 5270 | created context checkpoint 10 of 10 (pos_min = 55696, pos_max = 55696, n_tokens = 55697, size = 368.255 MiB)
+[34m13.49.166.075[0m [32mI [0mreasoning-budget: deactivated (natural end)
+[34m13.50.983.509[0m [32mI [0mslot print_timing: id  0 | task 5270 | n_decoded =    101, tg =  33.64 t/s
+[34m13.53.993.662[0m [32mI [0mslot print_timing: id  0 | task 5270 | n_decoded =    225, tg =  37.42 t/s
+[34m13.56.996.002[0m [32mI [0mslot print_timing: id  0 | task 5270 | n_decoded =    384, tg =  42.60 t/s
+[34m13.57.177.882[0m [32mI [0mslot print_timing: id  0 | task 5270 | 
+prompt eval time =     883.93 ms /   260 tokens (    3.40 ms per token,   294.14 tokens per second)
+       eval time =    9196.69 ms /   392 tokens (   23.46 ms per token,    42.62 tokens per second)
+      total time =   10080.62 ms /   652 tokens
+draft acceptance rate = 0.47855 (  290 accepted /   606 generated)
+[34m13.57.177.894[0m [32mI [0mstatistics draft-mtp: #calls(b,g,a) = 9 5331 5331, #gen drafts = 5331, #acc drafts = 4923, #gen tokens = 31986, #acc tokens = 22409, dur(b,g,a) = 0.012, 109603.552, 9.988 ms
+[34m13.57.178.884[0m [32mI [0mslot      release: id  0 | task 5270 | stop processing: n_tokens = 56092, truncated = 0
+[34m13.57.178.940[0m [32mI [0msrv  update_slots: all slots are idle

@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTP Build Comparison: b9198 vs b9204</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+<style>
+:root {
+    --bg: #0d1117; --card: #161b22; --border: #30363d;
+    --text: #c9d1d9; --muted: #8b949e; --green: #3fb950;
+    --blue: #58a6ff; --orange: #d29922; --red: #f85149;
+    --purple: #bc8cff; --cyan: #39d2c0;
+    --color-a: #58a6ff; --color-b: #f85149;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--text); padding: 20px; line-height: 1.5;
+}
+h1 { text-align: center; font-size: 1.8em; margin: 20px 0 5px; color: #f0f6fc; }
+h2 { font-size: 1.2em; color: var(--blue); margin: 25px 0 10px; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
+h3 { font-size: 1em; color: var(--muted); margin: 15px 0 8px; }
+.subtitle { text-align: center; color: var(--muted); font-size: 0.9em; margin-bottom: 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 15px; margin: 15px 0; }
+.card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 15px;
+}
+.card h3 { margin-top: 0; }
+table {
+    width: 100%; border-collapse: collapse; font-size: 0.85em;
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+}
+th, td { padding: 8px 12px; text-align: right; border-bottom: 1px solid var(--border); }
+th { background: #1c2128; color: var(--blue); font-weight: 600; text-align: right; }
+th:first-child, td:first-child { text-align: left; }
+tr:hover { background: #1c2128; }
+.highlight { color: var(--green); font-weight: 600; }
+.bad { color: var(--red); font-weight: 600; }
+.warn { color: var(--orange); font-weight: 600; }
+.chart-container { position: relative; height: 300px; margin: 10px 0; }
+.chart-container.tall { height: 400px; }
+.full-width { grid-column: 1 / -1; }
+.badge {
+    display: inline-block; padding: 2px 8px; border-radius: 12px;
+    font-size: 0.75em; font-weight: 600; margin-left: 5px;
+}
+.badge-blue { background: rgba(88,166,255,0.2); color: var(--blue); }
+.badge-red { background: rgba(248,81,73,0.2); color: var(--red); }
+.config-box {
+    background: #1c2128; border: 1px solid var(--border); border-radius: 6px;
+    padding: 10px 15px; font-family: 'Courier New', monospace; font-size: 0.8em;
+    color: var(--cyan); margin: 10px 0;
+}
+.summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 15px 0; }
+.summary-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 15px; text-align: center;
+}
+.summary-card .value { font-size: 2em; font-weight: 700; margin: 5px 0; }
+.summary-card .label { color: var(--muted); font-size: 0.85em; }
+.summary-card.card-a { border-color: var(--color-a); }
+.summary-card.card-a .value { color: var(--color-a); }
+.summary-card.card-b { border-color: var(--color-b); }
+.summary-card.card-b .value { color: var(--color-b); }
+.delta-box {
+    text-align: center; padding: 15px; margin: 15px 0;
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+}
+.delta-box .delta-value { font-size: 2.5em; font-weight: 700; }
+.delta-box .delta-label { color: var(--muted); font-size: 0.9em; margin-top: 5px; }
+</style>
+</head>
+<body>
+
+<h1>MTP Build Regression Analysis</h1>
+<p class="subtitle">b9198 vs b9204 &middot; Qwen3.6-27B-UD-Q4_K_XL_MTP &middot; AMD Radeon AI PRO R9700 &middot; draft-mtp (n-max=6)</p>
+
+<div class="config-box">
+Both builds: --spec-type draft-mtp --spec-draft-n-max 6 --threads 10 -b 2048 -fa 1<br>
+Model: Qwen3.6-27B-UD-Q4_K_XL_MTP.gguf &middot; Same hardware &middot; One-shot test
+</div>
+
+<div class="delta-box">
+    <div class="delta-label">Generation Throughput Change (b9198 → b9204)</div>
+    <div class="delta-value bad">-44%</div>
+    <div class="delta-label">b9198: 45.7 t/s &middot; b9204: 25.6 t/s</div>
+</div>
+
+<div class="summary-grid">
+    <div class="summary-card card-a">
+        <div class="label">b9198</div>
+        <div class="value">45.7 <small>t/s</small></div>
+        <div class="label">9 requests &middot; 67.4%% acceptance &middot; 1.6x overhead</div>
+    </div>
+    <div class="summary-card card-b">
+        <div class="label">b9204</div>
+        <div class="value">25.6 <small>t/s</small></div>
+        <div class="label">11 requests &middot; 57.8%% acceptance &middot; 1.8x overhead</div>
+    </div>
+</div>
+
+<h2>Full Metrics Comparison</h2>
+<table>
+<tr><th>Metric</th><th>b9198</th><th>b9204</th><th>Delta</th></tr>
+<tr><td>Requests</td><td>9</td><td>11</td><td>—</td></tr>
+<tr><td>Overall Acceptance</td><td>67.4%%</td><td>57.8%%</td><td class="bad">-44%</td></tr>
+<tr><td>Gen Mean (t/s)</td><td>45.7</td><td>25.6</td><td class="bad">-44%</td></tr>
+<tr><td>Gen Median (t/s)</td><td>54.4</td><td>24.5</td><td>—</td></tr>
+<tr><td>Gen P90 (t/s)</td><td>63.5</td><td>28.8</td><td>—</td></tr>
+<tr><td>Gen P99 (t/s)</td><td>63.5</td><td>50.2</td><td>—</td></tr>
+<tr><td>Gen Std (t/s)</td><td>15.1</td><td>9.2</td><td>—</td></tr>
+<tr><td>Prompt Mean (pps)</td><td>230.2</td><td>290.3</td><td>—</td></tr>
+<tr><td>Prompt Median (pps)</td><td>142.1</td><td>231.3</td><td>—</td></tr>
+<tr><td>Wall Median (s)</td><td>27.7</td><td>45.5</td><td>—</td></tr>
+<tr><td>Wall P90 (s)</td><td>466.5</td><td>505.5</td><td>—</td></tr>
+<tr><td>Wall P99 (s)</td><td>466.5</td><td>505.5</td><td>—</td></tr>
+<tr><td>Draft Overhead</td><td>1.6x</td><td>1.8x</td><td>—</td></tr>
+</table>
+
+<div class="grid">
+    <div class="card">
+        <h3>Generation Throughput</h3>
+        <div class="chart-container"><canvas id="chart-throughput"></canvas></div>
+    </div>
+    <div class="card">
+        <h3>Prompt Processing Speed</h3>
+        <div class="chart-container"><canvas id="chart-prompt"></canvas></div>
+    </div>
+    <div class="card">
+        <h3>Wall Time Percentiles</h3>
+        <div class="chart-container"><canvas id="chart-wall"></canvas></div>
+    </div>
+    <div class="card">
+        <h3>Acceptance Rate Distribution</h3>
+        <div class="chart-container"><canvas id="chart-acceptance"></canvas></div>
+    </div>
+    <div class="card">
+        <h3>Draft Overhead Distribution</h3>
+        <div class="chart-container"><canvas id="chart-overhead"></canvas></div>
+    </div>
+    <div class="card">
+        <h3>Throughput by Response Size</h3>
+        <div class="chart-container"><canvas id="chart-size"></canvas></div>
+    </div>
+    <div class="card full-width">
+        <h3>Wall Time vs Output Tokens (each dot = one request)</h3>
+        <div class="chart-container tall"><canvas id="chart-wall-scatter"></canvas></div>
+    </div>
+</div>
+
+<h2>Throughput Over Time</h2>
+<div class="grid">
+    <div class="card">
+        <h3>b9198 Timeline</h3>
+        <div class="chart-container tall"><canvas id="chart-timeline-a"></canvas></div>
+    </div>
+    <div class="card">
+        <h3>b9204 Timeline</h3>
+        <div class="chart-container tall"><canvas id="chart-timeline-b"></canvas></div>
+    </div>
+</div>
+
+<h2>Acceptance vs Throughput</h2>
+<div class="grid">
+    <div class="card">
+        <h3>b9198 Scatter</h3>
+        <div class="chart-container"><canvas id="chart-scatter-a"></canvas></div>
+    </div>
+    <div class="card">
+        <h3>b9204 Scatter</h3>
+        <div class="chart-container"><canvas id="chart-scatter-b"></canvas></div>
+    </div>
+</div>
+
+<h2>Wall Time User Experience (ECDF)</h2>
+<p style="color: var(--muted); font-size: 0.85em; margin-bottom: 10px;">Cumulative % of requests completed by wall time. Left-shifted = better. Log scale X-axis.</p>
+<div class="grid">
+    <div class="card full-width">
+        <h3>Cumulative Request Completion</h3>
+        <div class="chart-container tall"><canvas id="chart-wall-ecdf"></canvas></div>
+    </div>
+</div>
+
+<script>
+const data = {
+  "throughput": {
+    "labels": [
+      "b9198",
+      "b9204"
+    ],
+    "gen_mean": [
+      45.70222222222222,
+      25.58909090909091
+    ],
+    "gen_median": [
+      54.43,
+      24.54
+    ],
+    "gen_p90": [
+      63.45,
+      28.77
+    ],
+    "gen_p99": [
+      63.45,
+      50.172000000000004
+    ]
+  },
+  "prompt": {
+    "labels": [
+      "b9198",
+      "b9204"
+    ],
+    "mean": [
+      230.1988888888889,
+      290.25090909090903
+    ],
+    "median": [
+      142.12,
+      231.32
+    ]
+  },
+  "wall_percentiles": {
+    "labels": [
+      "b9198",
+      "b9204"
+    ],
+    "p50": [
+      27.69224,
+      45.528169999999996
+    ],
+    "p90": [
+      466.46139,
+      505.48093
+    ],
+    "p99": [
+      466.46139,
+      505.48093
+    ]
+  },
+  "acceptance": {
+    "buckets": [
+      "40-50%",
+      "50-60%",
+      "60-70%",
+      "70%+"
+    ],
+    "a": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "b": [
+      1,
+      7,
+      3,
+      0
+    ]
+  },
+  "overhead_a": [
+    1.987163029525032,
+    1.967741935483871,
+    1.6148613291470435,
+    1.6123439667128987,
+    1.6236320109439124,
+    1.416616356290345,
+    1.4184306569343066,
+    1.4186898141868982,
+    1.427372930518988
+  ],
+  "overhead_b": [
+    1.8710433763188745,
+    2.0833333333333335,
+    1.8400876232201533,
+    1.8607050730868444,
+    1.8638297872340426,
+    1.8599670510708401,
+    1.864533139376307,
+    1.6318473125321606,
+    1.6364897996946848,
+    1.6494733999459898,
+    1.6738397718434017
+  ],
+  "size_a": {
+    "tiny (<100)": 35.12,
+    "small (100-299)": 40.97,
+    "medium (300-799)": 54.43,
+    "large (800-1999)": 55.75,
+    "huge (2000+)": 46.019999999999996
+  },
+  "size_b": {
+    "tiny (<100)": 0,
+    "small (100-299)": 20.64,
+    "medium (300-799)": 20.683333333333334,
+    "large (800-1999)": 30.723333333333333,
+    "huge (2000+)": 26.654999999999998
+  },
+  "timeline_a": {
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "values": [
+      55.75,
+      25.16,
+      28.59,
+      28.59,
+      35.12,
+      63.45,
+      63.45,
+      54.43,
+      56.78
+    ]
+  },
+  "timeline_b": {
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "values": [
+      52.55,
+      17.43,
+      24.54,
+      24.54,
+      19.88,
+      20.64,
+      24.74,
+      28.77,
+      28.77,
+      20.34,
+      19.28
+    ]
+  },
+  "scatter_a": [
+    {
+      "acc": 0.5032299741602068,
+      "tps": 55.75
+    },
+    {
+      "acc": 0.5081967213114754,
+      "tps": 25.16
+    },
+    {
+      "acc": 0.6192482177576151,
+      "tps": 28.59
+    },
+    {
+      "acc": 0.6202150537634409,
+      "tps": 28.59
+    },
+    {
+      "acc": 0.6159031068983676,
+      "tps": 35.12
+    },
+    {
+      "acc": 0.7059074219774456,
+      "tps": 63.45
+    },
+    {
+      "acc": 0.7050045027659848,
+      "tps": 63.45
+    },
+    {
+      "acc": 0.7048757170172084,
+      "tps": 54.43
+    },
+    {
+      "acc": 0.7005877571437504,
+      "tps": 56.78
+    }
+  ],
+  "scatter_b": [
+    {
+      "acc": 0.5344611528822055,
+      "tps": 52.55
+    },
+    {
+      "acc": 0.48,
+      "tps": 17.43
+    },
+    {
+      "acc": 0.5434523809523809,
+      "tps": 24.54
+    },
+    {
+      "acc": 0.5374306839186691,
+      "tps": 24.54
+    },
+    {
+      "acc": 0.5365296803652968,
+      "tps": 19.88
+    },
+    {
+      "acc": 0.537643932683791,
+      "tps": 20.64
+    },
+    {
+      "acc": 0.5363272869124244,
+      "tps": 24.74
+    },
+    {
+      "acc": 0.612802430913886,
+      "tps": 28.77
+    },
+    {
+      "acc": 0.6110639981908639,
+      "tps": 28.77
+    },
+    {
+      "acc": 0.6062540929927963,
+      "tps": 20.34
+    },
+    {
+      "acc": 0.5974287484510533,
+      "tps": 19.28
+    }
+  ],
+  "wall_scatter_a": [
+    {
+      "x": 1038,
+      "y": 19.69058
+    },
+    {
+      "x": 197,
+      "y": 27.69224
+    },
+    {
+      "x": 13316,
+      "y": 466.46139
+    },
+    {
+      "x": 13316,
+      "y": 466.46139
+    },
+    {
+      "x": 85,
+      "y": 2.8298200000000002
+    },
+    {
+      "x": 11755,
+      "y": 258.03475
+    },
+    {
+      "x": 11755,
+      "y": 258.03475
+    },
+    {
+      "x": 485,
+      "y": 9.25993
+    },
+    {
+      "x": 248,
+      "y": 4.8042
+    }
+  ],
+  "wall_scatter_b": [
+    {
+      "x": 1115,
+      "y": 22.142439999999997
+    },
+    {
+      "x": 334,
+      "y": 33.80868
+    },
+    {
+      "x": 11667,
+      "y": 477.16573999999997
+    },
+    {
+      "x": 11667,
+      "y": 477.16573999999997
+    },
+    {
+      "x": 588,
+      "y": 29.999200000000002
+    },
+    {
+      "x": 145,
+      "y": 10.06426
+    },
+    {
+      "x": 452,
+      "y": 20.19724
+    },
+    {
+      "x": 12774,
+      "y": 505.48093
+    },
+    {
+      "x": 12774,
+      "y": 505.48093
+    },
+    {
+      "x": 812,
+      "y": 45.528169999999996
+    },
+    {
+      "x": 1271,
+      "y": 66.79360000000001
+    }
+  ],
+  "regress_a": {
+    "slope": 0.029555958751667777,
+    "intercept": -3.26713522703333,
+    "r2": -105.34765625,
+    "x_min": 85.0,
+    "x_max": 13316.0
+  },
+  "regress_b": {
+    "slope": 0.03964802560193109,
+    "intercept": 6.248400523826822,
+    "r2": -1.5069444444444446,
+    "x_min": 145.0,
+    "x_max": 12774.0
+  },
+  "wall_ecdf_a": {
+    "x": [
+      2.8298200000000002,
+      4.8042,
+      9.25993,
+      19.69058,
+      27.69224,
+      258.03475,
+      258.03475,
+      466.46139,
+      466.46139
+    ],
+    "y": [
+      0.1111111111111111,
+      0.2222222222222222,
+      0.3333333333333333,
+      0.4444444444444444,
+      0.5555555555555556,
+      0.6666666666666666,
+      0.7777777777777778,
+      0.8888888888888888,
+      1.0
+    ]
+  },
+  "wall_ecdf_b": {
+    "x": [
+      10.06426,
+      20.19724,
+      22.142439999999997,
+      29.999200000000002,
+      33.80868,
+      45.528169999999996,
+      66.79360000000001,
+      477.16573999999997,
+      477.16573999999997,
+      505.48093,
+      505.48093
+    ],
+    "y": [
+      0.09090909090909091,
+      0.18181818181818182,
+      0.2727272727272727,
+      0.36363636363636365,
+      0.45454545454545453,
+      0.5454545454545454,
+      0.6363636363636364,
+      0.7272727272727273,
+      0.8181818181818182,
+      0.9090909090909091,
+      1.0
+    ]
+  }
+};
+
+Chart.defaults.color = '#8b949e';
+Chart.defaults.borderColor = '#30363d';
+Chart.defaults.font.size = 11;
+
+const colorA = '#58a6ff';
+const colorB = '#f85149';
+
+// Throughput
+new Chart(document.getElementById('chart-throughput'), {
+    type: 'bar',
+    data: {
+        labels: data.throughput.labels,
+        datasets: [
+            { label: 'Mean', data: data.throughput.gen_mean, backgroundColor: [colorA, colorB] },
+            { label: 'Median', data: data.throughput.gen_median, backgroundColor: [colorA + '80', colorB + '80'] },
+            { label: 'P90', data: data.throughput.gen_p90, backgroundColor: [colorA + '40', colorB + '40'] },
+            { label: 'P99', data: data.throughput.gen_p99, backgroundColor: [colorA + '20', colorB + '20'] },
+        ]
+    },
+    options: {
+        responsive: true, maintainAspectRatio: false,
+        scales: { y: { beginAtZero: true, title: { display: true, text: 'tokens/sec' } } },
+        plugins: { legend: { position: 'bottom' } }
+    }
+});
+
+// Prompt processing
+new Chart(document.getElementById('chart-prompt'), {
+    type: 'bar',
+    data: {
+        labels: data.prompt.labels,
+        datasets: [
+            { label: 'Mean', data: data.prompt.mean, backgroundColor: [colorA, colorB] },
+            { label: 'Median', data: data.prompt.median, backgroundColor: [colorA + '80', colorB + '80'] },
+        ]
+    },
+    options: {
+        responsive: true, maintainAspectRatio: false,
+        scales: { y: { beginAtZero: true, title: { display: true, text: 'tokens/sec' } } },
+        plugins: { legend: { position: 'bottom' } }
+    }
+});
+
+// Wall time percentiles
+new Chart(document.getElementById('chart-wall'), {
+    type: 'bar',
+    data: {
+        labels: data.wall_percentiles.labels,
+        datasets: [
+            { label: 'P50 (s)', data: data.wall_percentiles.p50, backgroundColor: [colorA, colorB] },
+            { label: 'P90 (s)', data: data.wall_percentiles.p90, backgroundColor: [colorA + '80', colorB + '80'] },
+            { label: 'P99 (s)', data: data.wall_percentiles.p99, backgroundColor: [colorA + '40', colorB + '40'] },
+        ]
+    },
+    options: {
+        responsive: true, maintainAspectRatio: false,
+        scales: { y: { beginAtZero: true, title: { display: true, text: 'seconds' } } },
+        plugins: { legend: { position: 'bottom' } }
+    }
+});
+
+// Acceptance distribution
+new Chart(document.getElementById('chart-acceptance'), {
+    type: 'bar',
+    data: {
+        labels: data.acceptance.buckets,
+        datasets: [
+            { label: 'b9198', data: data.acceptance.a, backgroundColor: colorA },
+            { label: 'b9204', data: data.acceptance.b, backgroundColor: colorB },
+        ]
+    },
+    options: {
+        responsive: true, maintainAspectRatio: false,
+        scales: { y: { beginAtZero: true, title: { display: true, text: 'requests' } } },
+        plugins: { legend: { position: 'bottom' } }
+    }
+});
+
+// Draft overhead
+const ohLabels = ['1.0-1.5x', '1.5-2.0x', '2.0-2.5x', '2.5-3.0x', '3.0-3.5x', '3.5-4.0x', '4.0x+'];
+function bucketOH(vals) {
+    return [
+        vals.filter(v => v < 1.5).length,
+        vals.filter(v => v >= 1.5 && v < 2.0).length,
+        vals.filter(v => v >= 2.0 && v < 2.5).length,
+        vals.filter(v => v >= 2.5 && v < 3.0).length,
+        vals.filter(v => v >= 3.0 && v < 3.5).length,
+        vals.filter(v => v >= 3.5 && v < 4.0).length,
+        vals.filter(v => v >= 4.0).length,
+    ];
+}
+new Chart(document.getElementById('chart-overhead'), {
+    type: 'bar',
+    data: {
+        labels: ohLabels,
+        datasets: [
+            { label: 'b9198', data: bucketOH(data.overhead_a), backgroundColor: colorA },
+            { label: 'b9204', data: bucketOH(data.overhead_b), backgroundColor: colorB },
+        ]
+    },
+    options: {
+        responsive: true, maintainAspectRatio: false,
+        scales: { y: { beginAtZero: true, title: { display: true, text: 'requests' } } },
+        plugins: { legend: { position: 'bottom' } }
+    }
+});
+
+// Throughput by response size
+new Chart(document.getElementById('chart-size'), {
+    type: 'bar',
+    data: {
+        labels: Object.keys(data.size_a),
+        datasets: [
+            { label: 'b9198', data: Object.values(data.size_a), backgroundColor: colorA },
+            { label: 'b9204', data: Object.values(data.size_b), backgroundColor: colorB },
+        ]
+    },
+    options: {
+        responsive: true, maintainAspectRatio: false,
+        scales: { y: { beginAtZero: true, title: { display: true, text: 'tokens/sec' } } },
+        plugins: { legend: { position: 'bottom' } }
+    }
+});
+
+// Wall time scatter
+new Chart(document.getElementById('chart-wall-scatter'), {
+    type: 'scatter',
+    data: {
+        datasets: [
+            {
+                label: 'b9198',
+                data: data.wall_scatter_a,
+                backgroundColor: colorA + '80',
+                pointRadius: 5,
+            },
+            {
+                label: 'b9204',
+                data: data.wall_scatter_b,
+                backgroundColor: colorB + '80',
+                pointRadius: 5,
+            },
+            {
+                label: 'b9198 trend',
+                type: 'line',
+                data: [
+                    { x: data.regress_a.x_min, y: data.regress_a.intercept + data.regress_a.slope * data.regress_a.x_min },
+                    { x: data.regress_a.x_max, y: data.regress_a.intercept + data.regress_a.slope * data.regress_a.x_max }
+                ],
+                borderColor: colorA,
+                borderWidth: 1,
+                borderDash: [5, 5],
+                pointRadius: 0,
+                fill: false,
+            },
+            {
+                label: 'b9204 trend',
+                type: 'line',
+                data: [
+                    { x: data.regress_b.x_min, y: data.regress_b.intercept + data.regress_b.slope * data.regress_b.x_min },
+                    { x: data.regress_b.x_max, y: data.regress_b.intercept + data.regress_b.slope * data.regress_b.x_max }
+                ],
+                borderColor: colorB,
+                borderWidth: 1,
+                borderDash: [5, 5],
+                pointRadius: 0,
+                fill: false,
+            },
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                type: 'linear',
+                position: 'bottom',
+                title: { display: true, text: 'Output Tokens' },
+                min: 0,
+            },
+            y: {
+                beginAtZero: true,
+                max: 600,
+                title: { display: true, text: 'Wall Time (seconds)' },
+            },
+        },
+        plugins: {
+            legend: { position: 'bottom' },
+            tooltip: {
+                callbacks: {
+                    label: function(ctx) {
+                        return `${ctx.dataset.label}: ${ctx.parsed.x} tokens, ${ctx.parsed.y.toFixed(1)}s`;
+                    }
+                }
+            }
+        }
+    }
+});
+
+// Timelines
+function makeTimeline(id, td, color) {
+    new Chart(document.getElementById(id), {
+        type: 'line',
+        data: {
+            labels: td.labels,
+            datasets: [{
+                label: 'Gen t/s', data: td.values, borderColor: color,
+                backgroundColor: color + '20', fill: true, tension: 0.1, pointRadius: 2,
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: { y: { beginAtZero: false, title: { display: true, text: 'tokens/sec' } } },
+            plugins: { legend: { display: false } }
+        }
+    });
+}
+makeTimeline('chart-timeline-a', data.timeline_a, colorA);
+makeTimeline('chart-timeline-b', data.timeline_b, colorB);
+
+// Scatter plots
+function makeScatter(id, sd, color) {
+    new Chart(document.getElementById(id), {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: 'Requests',
+                data: sd.map(p => ({ x: p.acc * 100, y: p.tps })),
+                backgroundColor: color + '80',
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: {
+                x: { title: { display: true, text: 'Acceptance Rate (%)' } },
+                y: { beginAtZero: false, title: { display: true, text: 'Gen t/s' } },
+            },
+            plugins: { legend: { display: false } }
+        }
+    });
+}
+makeScatter('chart-scatter-a', data.scatter_a, colorA);
+makeScatter('chart-scatter-b', data.scatter_b, colorB);
+
+// Wall Time ECDF
+new Chart(document.getElementById('chart-wall-ecdf'), {
+    type: 'line',
+    data: {
+        datasets: [
+            {
+                label: 'b9198',
+                data: data.wall_ecdf_a.x.map((x, i) => ({ x: x, y: data.wall_ecdf_a.y[i] })),
+                borderColor: colorA,
+                borderWidth: 2,
+                pointRadius: 0,
+                fill: false,
+                tension: 0,
+            },
+            {
+                label: 'b9204',
+                data: data.wall_ecdf_b.x.map((x, i) => ({ x: x, y: data.wall_ecdf_b.y[i] })),
+                borderColor: colorB,
+                borderWidth: 2,
+                pointRadius: 0,
+                fill: false,
+                tension: 0,
+            },
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                type: 'logarithmic',
+                title: { display: true, text: 'Wall Time (seconds)' },
+                min: 1,
+            },
+            y: {
+                beginAtZero: true,
+                max: 1,
+                ticks: {
+                    callback: function(v) { return (v * 100) + '%'; },
+                    stepSize: 0.1,
+                },
+                title: { display: true, text: 'Cumulative % of Requests' },
+            },
+        },
+        plugins: {
+            legend: { position: 'bottom' },
+            tooltip: {
+                callbacks: {
+                    label: function(ctx) {
+                        return `${ctx.dataset.label}: ${(ctx.parsed.y * 100).toFixed(0)}% complete by ${ctx.parsed.x.toFixed(1)}s`;
+                    }
+                }
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>
