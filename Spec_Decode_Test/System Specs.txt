@@ -1,0 +1,9 @@
+System Specs: 
+
+CPU: 		Intel 225F
+GPU: 		ASRock R9700 (LACT Settings: 300w PL, -50mV, +50Mhz GPU Clock, 2650Mhz VRAM)
+RAM: 		32GB DDR5-6400
+SSD: 		T-FORCE TM8FPV002T
+OS:  		Ubuntu 26.04 LTS
+Vulkan:		1.4.341
+OpenCode:	1.15.4
