@@ -34,7 +34,7 @@ llama-server-vulkan \
   --threads 10 \
   --host 0.0.0.0 --port 8180 --log-file raw_log_ngram_min_48_max_64_mtch_24_b9204_00.txt
   
-Baseline No Spec Decode Command:
+Baseline No Spec Decode:
 
 llama-server-vulkan \
   -m '/Qwen3.6-27B-UD-Q4_K_XL.gguf' \
